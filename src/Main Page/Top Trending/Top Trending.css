@@ -1,0 +1,39 @@
+.topTrendingTitle {
+    text-shadow: 0 0 5px white;
+}
+.topTrending__box--content {
+
+}
+
+
+.topTrending__box--content--items {
+    box-shadow: 0 0 9px white;
+}
+
+.topTrending__box--items--img {
+   filter: drop-shadow(0 0 5px white, 0);
+   -webkit-filter: drop-shadow(0 0 5px white, 0);
+}
+.topTrending__box--content::-webkit-scrollbar {
+    background-color: gray;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    height: 5px;
+}
+.topTrending__box--content::-webkit-scrollbar-thumb  {
+    background-color: #fff;
+    height: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    cursor: grab;
+}
+.topTrending__box--content:active::-webkit-scrollbar-thumb  {
+   
+    cursor: grabbing;
+}

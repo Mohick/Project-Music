@@ -1,0 +1,10 @@
+.header__box--login {
+
+}
+.header__box--login--dropdown {
+    box-shadow: 0 0 5px rgba(0, 0, 0); 
+}
+
+.header__box--login:hover > .header__box--login--dropdown  {
+    display: block;
+}

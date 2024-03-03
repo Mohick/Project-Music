@@ -1,0 +1,31 @@
+#mainPage__slider {
+    height: 356px;
+    width: 300px;
+    border-radius: 400px 200px  300px 200px ;
+    -webkit-border-radius: 400px 200px  300px 200px ;
+    -moz-border-radius: 400px 200px  300px 200px ;
+    -ms-border-radius: 400px 200px  300px 200px ;
+    -o-border-radius: 400px 200px  300px 200px ;
+    overflow: hidden;
+    box-shadow: 0 0 9px white;
+}
+
+
+
+@media screen and (min-width: 640px) {
+    #mainPage__slider {
+        height: 356px;
+        width: 400px;
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    #mainPage__slider {
+        height: 356px;
+        width: 500px;
+    }
+    
+}
+
+
