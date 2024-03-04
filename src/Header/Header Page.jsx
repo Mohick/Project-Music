@@ -4,7 +4,7 @@ import DropDownHeader from "./Modal/DropDown";
 import './Header Page.css'
 function HeaderView({ data }) {
   return (
-    <header className=" z-50 top-0 py-1 sm:p-0 fixed bg-blue-300 left-0  right-0 ">
+    <header className=" z-50 top-0  py-1 sm:p-0 fixed bg-blue-300 left-0  right-0 ">
       <div className="container gap-8 p-1 sm:p-0 m-auto flex ">
         {/* logo */}
         <div className="flex order-1  items-center">
@@ -46,10 +46,10 @@ function HeaderView({ data }) {
             </>
           ) : (
             <>
-              <div className="hidden lg:block">
+              <div className="hidden capitalize lg:block">
                 <a href="/login/">Login</a>
               </div>
-              <div className="hidden lg:block">
+              <div className="hidden capitalize lg:block">
                 <a href="/register/">register</a>
               </div>
             </>

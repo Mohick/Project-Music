@@ -4,7 +4,7 @@ import HeaderView from "./Header/Header Page";
 import Footer from "./Footer/View Footer";
 function App() {
   const data = {
-    user: true,
+    user: false,
   };
   return (
     <>
