@@ -16,7 +16,7 @@ const ViewDiscoverVN = lazy(() =>
 const ViewDiscoverUSA = lazy(() =>
   import("../Discocer/Views Mode Render/Views USA")
 );
-function ViewsRouter() {
+function ViewsRouter({data}) {
   return (
     <Routes>
       <Route
@@ -28,10 +28,10 @@ function ViewsRouter() {
         }
       />
       <Route
-        path="/productmusic"
+        path="song/:title/:id"
         element={
           <Suspense fallback={"Loading..."}>
-            <ProductMusic />
+            <ProductMusic data={data}/>
           </Suspense>
         }
       />

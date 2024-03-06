@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ControllAudio from "./Controll Audio/Controll";
 function ViewUSA() {
   const [api, setApi] = useState([]);
+
   useEffect(() => {
     axios.get("http://localhost:3000/discover/format-json/").then((data) => {
-      const findVN = data.data.filter((value)=> value.country.trim().toLowerCase() === "usa".trim().toLowerCase())
-      setApi(findVN);
+      setApi(data.data);
     });
   }, []);
 
@@ -28,9 +29,13 @@ function ViewUSA() {
               <div className="grid  grid-cols-2 gap-5 items-center">
                 <div className="p-1">
                   <svg
+                    id={`discover__btn--loop--${index}`}
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 block fill-gray-400"
                     viewBox="0 0 512 512"
+                    onClick={()=>{
+                      ControllAudio.loop(index);
+                    }}
                   >
                     <path
                       d="M48.5 224H40c-13.3 0-24-10.7-24-24V72c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 
@@ -41,8 +46,15 @@ function ViewUSA() {
                   </svg>
                 </div>
                 <div>
-                  <div className="p-1">
+                  <div
+                    className="p-1 flex items-center"
+                    onClick={() => {
+                      ControllAudio.play(index);
+                    }}
+                    id={`discover__btn--play--${index}`}
+                  >
                     <svg
+                      id={`discover__btn--play--${index}`}
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 block fill-back"
                       viewBox="0 0 384 512"
@@ -50,7 +62,13 @@ function ViewUSA() {
                       <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                     </svg>
                   </div>
-                  <div className="p-1 hidden">
+                  <div
+                    id={`discover__btn--pause--${index}`}
+                    className="p-1 hidden items-center"
+                    onClick={() => {
+                      ControllAudio.pause(index);
+                    }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 block fill-back"
@@ -63,9 +81,12 @@ function ViewUSA() {
                     </svg>
                   </div>
                 </div>
-                <audio controls className="hidden">
-                  <source src={item.audioMusical}></source>
-                </audio>
+                <audio
+                  src={item.audioMusical}
+                  id={`discover__audio--${index}`}
+                  controls
+                  className="hidden"
+                ></audio>
               </div>
             </div>
           );

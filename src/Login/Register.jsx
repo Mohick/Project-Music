@@ -8,8 +8,8 @@ function Register() {
           </div>
           <div className="grid gap-2">
             <div>
-              <div>
-                <label className="text-white capitalize" htmlFor="userName ">
+              <div className="mb-1">
+                <label className=" text-white capitalize" htmlFor="userName ">
                   user name
                 </label>
               </div>
@@ -23,8 +23,8 @@ function Register() {
               </div>
             </div>
             <div>
-              <div>
-                <label className="text-white capitalize" htmlFor="email">
+              <div className="mb-1">
+                <label className=" text-white capitalize" htmlFor="email">
                   Email
                 </label>
               </div>
@@ -38,8 +38,8 @@ function Register() {
               </div>
             </div>
             <div>
-              <div>
-                <label className="text-white capitalize" htmlFor="password">
+              <div className="mb-1">
+                <label className=" text-white capitalize" htmlFor="password">
                   password
                 </label>
               </div>
@@ -53,8 +53,8 @@ function Register() {
               </div>
             </div>
             <div>
-              <div>
-                <label className="text-white capitalize" htmlFor="re-enter__pasword">
+              <div className="mb-1">
+                <label className=" text-white capitalize" htmlFor="re-enter__pasword">
                   Re-ter Password
                 </label>
               </div>

@@ -4,7 +4,7 @@ function Login() {
       <div className="w-full mt-3 border p-1 shadow-inner shadow-white sm:max-w-96">
         <div className="text-green-400 font-bold text-center text-2xl">Login</div>
        <div className="grid gap-2">
-       <div >
+       <div className="mb-1">
             <div>
                 <label className="text-white capitalize" htmlFor="email">Email</label>
             </div>
@@ -13,7 +13,7 @@ function Login() {
             </div>
         </div>
         <div>
-            <div>
+            <div className="mb-1">
                 <label className="text-white capitalize" htmlFor="password">password</label>
             </div>
             <div className="focus-within:h-6">

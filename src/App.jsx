@@ -3,6 +3,9 @@ import ViewsRouter from "./Router/views router";
 import HeaderView from "./Header/Header Page";
 import Footer from "./Footer/View Footer";
 function App() {
+  document.onload=(a)=>{
+    console.log(1);
+  }
   const data = {
     user: false,
   };

@@ -1,7 +1,15 @@
+import { useEffect } from "react";
+import Controlls from "../View Play Song/Controll Audio/Controlls";
 import { originContent } from "../handle origin";
-
 function Footer() {
-  originContent();
+ useEffect(() =>{
+  let check =true
+  if(check) {
+      originContent()
+  }
+  return () => check = false
+ })
+
   return (
     <div className="bg-black  text-white pt-8 w-full">
       <hr className="shadow-lg shadow-white" />
