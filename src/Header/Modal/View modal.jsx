@@ -7,7 +7,7 @@ function ViewModalMenu({ data }) {
     <div
       id="modal__nenu"
       onClick={handleModalMenu}
-      className="fixed hidden bg-black/50 left-0 top-0 right-0 bottom-0 cursor-pointer"
+      className="fixed hidden bg-black/50 left-0 top-0 z-10 right-0 bottom-0 cursor-pointer"
     >
       <div
         className=" cursor-default h-full max-w-96 overflow-y-auto p-2 bg-white modal__menu-form"
@@ -29,11 +29,12 @@ function ViewModalMenu({ data }) {
             </svg>
           </div>
           <div className="mt-5">
-            {data ? (
+            
+            {!!data.email ? (
               <>
                 <div className="text-center mb-3">
                   <div>
-                    Username:
+                    Username: {data.username}
                   </div>
                 </div>
                 <ul className="flex flex-col gap-2">
@@ -48,7 +49,7 @@ function ViewModalMenu({ data }) {
                   <li className="text-center">
                     <Link
                       className=" p-1 bg-white hover:bg-slate-200 block"
-                      to="/contact"
+                      to="/Setting"
                     >
                       Setting
                     </Link>
@@ -56,7 +57,7 @@ function ViewModalMenu({ data }) {
                   <li className="text-center">
                     <Link
                       className=" p-1 bg-white hover:bg-slate-200 block"
-                      to="/about"
+                      to="/Discover"
                     >
                       Discover
                     </Link>

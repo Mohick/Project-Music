@@ -5,37 +5,44 @@ import ViewLike from "./View Like product";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
-function Product({ data }) {
+function Product() {
   const navigate = useNavigate();
   const { id, slug, title } = useParams();
-  const [item, setitem] = useState({});
- ;
+  const [data, setData] = useState({item:0, user:0});
+
   useEffect(() => {
     let check = true;
     if (check) {
-        Controlls.valueSong();
+      Controlls.valueSong();
       window.scrollTo(0, { behavior: "smooth" });
-      axios
-        .get("http://localhost:3000/discover/format-json/")
-        .then((response) => {
-          const data = response.data;
-          const items = data.filter((data) => data._id === id);
-          setitem(items[0]);
+     Promise.all([
+      axios.get("http://localhost:3000/discover/format-json/"),
+      axios .get("http://localhost:3000/account/format-json/session/account/", { withCredentials: true})
+     ])
+        .then(([itemsData,userData]) => {
+          const items = itemsData.data;
+          const user = userData.data
+          const item = items.filter((item) => item._id === id);
+          const  checkID = user.liked.filter(idSong =>{
+            console.log(idSong == id);
+            return idSong == id
+          })
+          console.log(checkID);
+          setData({item:item[0], user:user,id:checkID});
+        
         });
     }
-
     return () => (check = false);
   }, []);
-
   return (
     <div>
       <div className="border text-white  p-2  capitalize border-white">
-        <div className="font-bold text-center">{item.titleMusical}</div>
-        <div className="text-center opacity-65 ">{item.nameSinger}</div>
+        <div className="font-bold text-center">{data.item.titleMusical}</div>
+        <div className="text-center opacity-65 ">{data.item.nameSinger}</div>
         <div className="mt-2  flex justify-center">
           <div className="product__container--image md:w-80 w-64">
             <img
-              src={item.imageMusical}
+              src={data.item.imageMusical}
               className="product__container--image w-full"
               alt=" Image Disk"
             />
@@ -131,7 +138,7 @@ function Product({ data }) {
             </div>
           </div>
           <div>
-            {document.referrer == "" || performance.navigation.type ? (
+            {!!performance.navigation.type ? (
               <>
                 <div>
                   <svg
@@ -220,12 +227,12 @@ function Product({ data }) {
             </svg>
           </a>
 
-          <ViewLike id={item._id} item={item} data={data} />
+          <ViewLike id={data.user._id} item={data.item}  idUser={!!data.id?data.id:[]} />
         </div>
       </div>
         <audio
           id="myAudio"
-          src={item.audioMusical}
+          src={data.item.audioMusical}
           className="hidden"
           autoPlay={true}
           controls
@@ -233,6 +240,7 @@ function Product({ data }) {
       <div className="hidden" id="automaticRunFunc">
       </div>
     </div>
+   
   );
 }
 

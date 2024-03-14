@@ -11,29 +11,35 @@ function ViewUSA() {
   }, []);
 
   return (
-    <div className="container pb-3 mt-3 m-auto">
-      <div className="bg-white max-h-96 overflow-y-auto p-1">
+    <div className="container  text-white pb-3 mt-3 m-auto">
+      <div className="border  max-h-96 overflow-y-auto p-1">
         {api.map((item, index) => {
           return (
-            <div key={index} className="flex border p-1 mb-2 justify-between">
-              <div>
-                <div className="font-bold capitalize truncate">
-                  Name Song :
-                  <span className="ml-2  font-normal">{item.titleMusical}</span>
+            <div key={index} className="flex border p-1 mb-2 ">
+              <a className="block flex-1 " href={`/song/${item.titleMusical}/${item._id}`}>
+                <div>
+                  <div className="font-bold capitalize truncate">
+                    Name Song :
+                    <span className="ml-2 truncate  font-normal">
+                      {item.titleMusical}
+                    </span>
+                  </div>
+                  <div className="font-bold capitalize opacity-55 text-xs truncate">
+                    name singer :
+                    <span className="ml-2 truncate  font-normal ">
+                      {item.nameSinger}
+                    </span>
+                  </div>
                 </div>
-                <div className="font-bold capitalize opacity-55 text-xs truncate">
-                  name singer :
-                  <span className="ml-2  font-normal ">{item.nameSinger}</span>
-                </div>
-              </div>
-              <div className="grid  grid-cols-2 gap-5 items-center">
+              </a>
+              <div className="grid  grid-cols-2 cursor-pointer gap-5 items-center">
                 <div className="p-1">
                   <svg
                     id={`discover__btn--loop--${index}`}
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 block fill-gray-400"
                     viewBox="0 0 512 512"
-                    onClick={()=>{
+                    onClick={() => {
                       ControllAudio.loop(index);
                     }}
                   >
@@ -47,16 +53,15 @@ function ViewUSA() {
                 </div>
                 <div>
                   <div
-                    className="p-1 flex items-center"
+                    className="p-1 discover__btn--play cursor-pointer flex items-center"
                     onClick={() => {
                       ControllAudio.play(index);
                     }}
                     id={`discover__btn--play--${index}`}
                   >
                     <svg
-                      id={`discover__btn--play--${index}`}
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 block fill-back"
+                      className="h-5 w-5 block fill-white"
                       viewBox="0 0 384 512"
                     >
                       <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
@@ -64,14 +69,14 @@ function ViewUSA() {
                   </div>
                   <div
                     id={`discover__btn--pause--${index}`}
-                    className="p-1 hidden items-center"
+                    className="p-1 discover__btn--pause cursor-pointer hidden items-center"
                     onClick={() => {
                       ControllAudio.pause(index);
                     }}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 block fill-back"
+                      className="h-5 w-5 block fill-white"
                       viewBox="0 0 320 512"
                     >
                       <path

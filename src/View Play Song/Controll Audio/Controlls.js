@@ -81,7 +81,7 @@ class Controlls {
     window.location = urlNextSong;
   }
 
-  async like(obData) {
+  async like(obData,id) {
     const btnLike = document.querySelector("#Product__button--like");
     const btnUnlike = document.querySelector("#Product__button--unlike");
     switch (!!btnLike) {
@@ -91,18 +91,22 @@ class Controlls {
         btnUnlike.classList.add("block");
         btnLike.classList.add("hidden");
         obData.like = obData.like + 1;
-        // axios
-        //   .patch(
-        //     "http://localhost:3000/discover/format-json/uploadLiked/",
-        //     obData
-        //   )
-        //   .then((response) => {
-        //     console.log(response);
-        //   });
+        obData.idUser =id
+        Promise.all([
+          axios.patch(
+            "http://localhost:3000/discover/format-json/uploadLiked/", obData),
+            axios.put(
+              "http://localhost:3000/account//views-data//update/like", {addlike:"addlike",id,idItem:obData._id}),
+           
+        ])
+       
+          .then((response) => {
+            console.log(response);
+          });
         break;
     }
   }
-  async unlike(obData) {
+  async unlike(obData,id) {
     const btnLike = document.querySelector("#Product__button--like");
     const btnUnlike = document.querySelector("#Product__button--unlike");
     switch (!!btnUnlike) {
@@ -112,6 +116,18 @@ class Controlls {
         btnLike.classList.add("block");
         btnUnlike.classList.add("hidden");
         obData.like = obData.like - 1;
+                obData.idUser =id
+        Promise.all([
+          axios.patch(
+            "http://localhost:3000/discover/format-json/uploadLiked/", obData),
+            axios.put(
+              "http://localhost:3000/account//views-data//update/like", {addlike:"unlike",id,idItem:obData._id}),
+           
+        ])
+       
+          .then((response) => {
+            console.log(response);
+          });
         break;
     }
   }
@@ -194,7 +210,6 @@ class Controlls {
   }
   async fastforward() {
     let audio = document.querySelector("audio");
-
     const seekScroll = document.querySelector("#product__value--song");
     const newCurrentTime = seekScroll.value * audio.duration;
     console.log(newCurrentTime);

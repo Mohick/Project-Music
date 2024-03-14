@@ -27,7 +27,7 @@ function OthersProduct() {
       <div className="mb-3 text-white text-xl font-bold">
         Others Product <span className="text-red-500">&#35;</span>
       </div>
-      <div className="grid othersProduct__box--content xl:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-2">
+      <div className="grid othersProduct__box--content xl:grid-cols-5 md:grid-cols-3 lg:grid-cols-4	 grid-cols-3 gap-2">
         {item.map((item, index) => {
           return (
             <a

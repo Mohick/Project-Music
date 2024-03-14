@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import Controlls from "../Controll Audio/Controlls";
 
-function ViewLike({ id, data,item}) {
+function ViewLike({ id, item,idUser}) {
     const [liked,setLiked] = useState(item.like)
    useEffect(()=>{
     setLiked(item.like)
-  
+    
    },[item])
   return (
     <div>
-      {false ? (
+      {idUser.length == 0 ? (
         <>
           <div id="Product__button--like" className="block">
             <div className="grid grid-cols-2 gap-1">
               <svg
                 onClick={()=>{
-                    Controlls.like(item)
+                    Controlls.like(item , id)
                     setLiked(1+liked)
                 }}
                 className="h-5 cursor-pointer fill-white text-white w-5"
@@ -38,7 +38,7 @@ function ViewLike({ id, data,item}) {
             <div className="grid gap-1 grid-cols-2">
               <svg
                 onClick={()=>{
-                    Controlls.unlike(item)
+                    Controlls.unlike(item , id)
                     setLiked(liked-1)
                 }}
                 className="h-5 fill-white text-white w-5 "
@@ -60,7 +60,7 @@ function ViewLike({ id, data,item}) {
             <div className="grid grid-cols-2 gap-1" >
               <svg
                 onClick={()=>{
-                    Controlls.like(item)
+                    Controlls.like(item , id)
                     setLiked(1+liked)
                 }}
                 className="h-5 fill-white text-white w-5"
@@ -83,7 +83,7 @@ function ViewLike({ id, data,item}) {
             <div className="grid gap-1 grid-cols-2">
               <svg
                 onClick={()=>{
-                    Controlls.unlike(item)
+                    Controlls.unlike(item , id)
                     setLiked(()=>liked-1)
                 }}
                 className="h-5 fill-white text-white w-5 "
@@ -101,6 +101,7 @@ function ViewLike({ id, data,item}) {
         </>
       )}
     </div>
+   
   );
 }
 

@@ -5,13 +5,17 @@ function Footer() {
  useEffect(() =>{
   let check =true
   if(check) {
+   
       originContent()
   }
-  return () => check = false
- })
+  return () => {
+    window.removeEventListener('resize',handleRenderFooter)
+    return check = false
+  }
+ },[])
 
   return (
-    <div className="bg-black  text-white pt-8 w-full">
+    <div id="footer" className="bg-black relative bottom-0 left-0 right-0 text-white pt-8 w-full">
       <hr className="shadow-lg shadow-white" />
       <div className="container py-4 m-auto ">
         <div className="grid gap-1 p-1 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-center">

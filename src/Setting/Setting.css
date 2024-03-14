@@ -1,0 +1,77 @@
+.setting__box__edit--input--username {
+  position: relative;
+}
+.setting__box__edit--input--email {
+  position: relative;
+}
+.setting__box__edit--input--password {
+  position: relative;
+}
+.setting__box__edit--input--username::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  animation: 0.3s runAnimationSlideInput linear forwards;
+  -webkit-animation: 0.3s runAnimationSlideInput linear forwards;
+  box-shadow: 0 0 13px white;
+}
+
+.setting__box__edit--input--email::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  animation: 0.3s runAnimationSlideInput linear forwards;
+  -webkit-animation: 0.3s runAnimationSlideInput linear forwards;
+  box-shadow: 0 0 13px white;
+}
+
+.setting__box__edit--input--password::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  animation: 0.3s runAnimationSlideInput linear forwards;
+  -webkit-animation: 0.3s runAnimationSlideInput linear forwards;
+  box-shadow: 0 0 13px white;
+}
+.setting__box__edit--input--current--password::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  animation: 0.3s runAnimationSlideInput linear forwards;
+  -webkit-animation: 0.3s runAnimationSlideInput linear forwards;
+  box-shadow: 0 0 13px white;
+}
+@keyframes runAnimationSlideInput {
+  0% {
+    width: 0%;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+  }
+  100% {
+    width: 100%;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+  }
+}

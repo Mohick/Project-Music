@@ -1,3 +1,5 @@
+import { handleAutoTurnOff , autoRemoveAttributePlaying } from "./auto off when open a song other"
+
 class ControllAudio {
   async play(positionIndex) {
     const btnPlay = document.querySelector(
@@ -7,23 +9,12 @@ class ControllAudio {
       `#discover__btn--pause--${positionIndex}`
     );
     const audio = document.querySelector(`#discover__audio--${positionIndex}`);
-    const btnLoop = document.querySelector(
-      `#discover__btn--loop--${positionIndex}`
-    );
     btnPlay.classList.remove("flex");
     btnPause.classList.remove("hidden");
     btnPlay.classList.add("hidden");
     btnPause.classList.add("flex");
     audio.play();
-
-    audio.addEventListener("ended", () => {
-      if (!!btnLoop.getAttribute("loop")) {
-        btnPause.classList.remove("flex");
-        btnPlay.classList.remove("hidden");
-        btnPause.classList.add("hidden");
-        btnPlay.classList.add("flex");
-      }
-    });
+    handleAutoTurnOff(audio,btnPlay,btnPause)
   }
   async pause(positionIndex) {
     const btnPlay = document.querySelector(
@@ -33,13 +24,12 @@ class ControllAudio {
       `#discover__btn--pause--${positionIndex}`
     );
     const audio = document.querySelector(`#discover__audio--${positionIndex}`);
-    const btnLoop = document.querySelector(
-      `#discover__btn--loop--${positionIndex}`
-    );
+
     btnPause.classList.remove("flex");
     btnPlay.classList.remove("hidden");
     btnPause.classList.add("hidden");
     btnPlay.classList.add("flex");
+    autoRemoveAttributePlaying()
     audio.pause();
   }
   async loop(positionIndex) {
