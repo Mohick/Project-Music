@@ -1,8 +1,9 @@
 import { memo } from "react";
 import { handleModalMenu } from "./Handle ModalMenu";
 import { Link } from "react-router-dom";
-
+import {   } from "../handle logout";
 function ViewModalMenu({ data }) {
+  
   return (
     <div
       id="modal__nenu"
@@ -30,7 +31,7 @@ function ViewModalMenu({ data }) {
           </div>
           <div className="mt-5">
             
-            {!!data.email ? (
+            {!!data ? (
               <>
                 <div className="text-center mb-3">
                   <div>

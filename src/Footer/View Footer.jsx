@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import Controlls from "../View Play Song/Controll Audio/Controlls";
-import { originContent } from "../handle origin";
+import { originContent } from "../handle origin content";
 function Footer() {
  useEffect(() =>{
-  let check =true
+  let check =true 
+
   if(check) {
-   
       originContent()
   }
   return () => {

@@ -20,8 +20,7 @@ class HandleSignUp {
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
       axios
         .get(
-          `http://localhost:3000/account/format-json/session/returnUnuserdEmail/${email.value.trim()}`,
-          { withCredentials: true } // Thêm cấu hình withCredentials
+          `/account/client/${email.value.trim()}` 
         )
         .then((response) => {
           if (!!response.data.result) {
@@ -182,7 +181,7 @@ class HandleSignUp {
       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
         axios
           .get(
-            `http://localhost:3000/account/format-json/session/returnUnuserdEmail/${email.value.trim()}`
+            `/account/client/${email.value.trim()}`
           )
           .then((response) => {
             if (!!response.data.result) {
@@ -212,7 +211,7 @@ class HandleSignUp {
       }
     }
     function createAccount(items) {
-      axios.post("http://localhost:3000/account/form-created/create/",items,{
+      axios.post("/account/client/crud/create/",items,{
           withCredentials: true,
           credentials: 'include',
         }).then((response) => {

@@ -1,0 +1,25 @@
+
+.discover__container--items::-webkit-scrollbar {
+    background-color: gray;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    height: 5px;
+    width: 6px;
+}
+.discover__container--items::-webkit-scrollbar-thumb  {
+    background-color: #fff;
+    height: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    cursor: grab;
+}
+.discover__container--items:active::-webkit-scrollbar-thumb  {
+   
+    cursor: grabbing;
+}

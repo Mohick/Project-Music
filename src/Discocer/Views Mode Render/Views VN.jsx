@@ -1,17 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ControllAudio from "./Controll Audio/Controll";
+import './CSS Conntent.css'
 function ViewVN() {
   const [api, setApi] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/discover/format-json/").then((data) => {
-      setApi(data.data);
+    axios.get("/discover/format-json/").then((res) => {
+      const itemsVN = res.data.filter(item => (""+item.country).trim().toLowerCase() == "VN".trim().toLowerCase());
+      setApi(itemsVN);
     });
   }, []);
   return (
     <div className="container  text-white pb-3 mt-3 m-auto">
-      <div className="border  max-h-96 overflow-y-auto p-1">
+      <div className="border  discover__container--items max-h-96 overflow-y-auto p-1">
         {api.map((item, index) => {
           return (
             <div key={index} className="flex border p-1 mb-2 ">

@@ -12,7 +12,7 @@ function OthersProduct() {
     let check = true;
     if (check) {
       axios
-        .get("http://localhost:3000/discover/format-json/")
+        .get("/discover/format-json/")
         .then((response) => {
           const data = response.data;
           const items = data.filter((data) => data._id !== id);

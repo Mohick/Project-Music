@@ -11,7 +11,7 @@ class SignIn {
       password: password.value.trim()
     } ;
    if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value) && password.value.trim().length >= 8) {
-     axios.post(`http://localhost:3000/account/format-json/session/login`,items,{
+     axios.post(`/account/client/login`,items,{
       withCredentials: true,
       credentials: 'include',
     })
@@ -20,8 +20,10 @@ class SignIn {
          alert.innerHTML = `<div>Your email or password is wrong !</div>`
          alert.classList.add('text-red-400')
          alert.classList.remove('text-white')
+         console.log(response.data);
 
         }else {
+          console.log(response.data);
           window.location= '/'
         }
       })

@@ -1,4 +1,4 @@
-import axios from "axios";
+
 class SignInOnFocus {
   async OnFocusInPutSignIn () {
 
@@ -12,4 +12,4 @@ class SignInOnFocus {
 }
 
 
-export default new SignInOnblur
+export default new SignInOnFocus

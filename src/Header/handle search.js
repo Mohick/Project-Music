@@ -1,5 +1,3 @@
-import axios from "axios"
-
 
 async function handleSearch(discover,tag) {
     const value = tag.value

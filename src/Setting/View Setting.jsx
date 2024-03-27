@@ -3,13 +3,15 @@ import "./Setting.css";
 import axios from "axios";
 import HandleUpdateAccount from "./handle update account/handle update account";
 import handleUpdateAccount from "./handle update account/handle update account";
+
 function Setting() {
   const [account, setAccount] = useState({});
   useEffect(() => {
     let check = true;
     if (check) {
+
       axios
-        .get("http://localhost:3000/account/format-json/session/account/", {
+        .get("/account/client/automatic/login/", {
           withCredentials: true,
         })
         .then((res) => {

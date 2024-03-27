@@ -7,6 +7,7 @@ const Login = lazy(() => import("../Login/Login"));
 const Register = lazy(() => import("../Login/Register"));
 const Setting = lazy(() => import("../Setting/View Setting"));
 const Error404 = lazy(() => import("../Error 404/Page Error 404"))
+import Loading from "../Loading/View Loading";
 const ViewDiscoverAll = lazy(() =>
   import("../Discocer/Views Mode Render/Views All")
 );
@@ -23,7 +24,7 @@ function ViewsRouter() {
       <Route
         path="/"
         element={
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<Loading/>}>
             <MainPageComponent />
           </Suspense>
         }
@@ -31,7 +32,7 @@ function ViewsRouter() {
       <Route
         path="/setting"
         element={
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<Loading/>}>
             <Setting />
           </Suspense>
         }
@@ -39,7 +40,7 @@ function ViewsRouter() {
        <Route
         path="song/:title/:id"
         element={
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<Loading/>}>
             <ProductMusic />
           </Suspense>
         }
@@ -47,7 +48,7 @@ function ViewsRouter() {
       <Route
         path="/discover"
         element={
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<Loading/>}>
             <Discover render={"all"} />
             <ViewDiscoverAll />
           </Suspense>
@@ -55,7 +56,7 @@ function ViewsRouter() {
       /> <Route
       path="/search/:title"
       element={
-        <Suspense fallback={"Loading..."}>
+        <Suspense fallback={<Loading/>}>
           <ResultSearch />
         </Suspense>
       }
@@ -63,7 +64,7 @@ function ViewsRouter() {
       <Route
         path="/discover/VN"
         element={
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<Loading/>}>
             <Discover render={"VN"} />
             <ViewDiscoverVN />
           </Suspense>
@@ -72,7 +73,7 @@ function ViewsRouter() {
       <Route
         path="/discover/USA"
         element={
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<Loading/>}>
             <Discover render={"USA"} />
             <ViewDiscoverUSA />
           </Suspense>
@@ -81,7 +82,7 @@ function ViewsRouter() {
         <Route
         path="/Login/"
         element={
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<Loading/>}>
             <Login />
           </Suspense>
         }
@@ -89,7 +90,7 @@ function ViewsRouter() {
          <Route
         path="/register/"
         element={
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<Loading/>}>
             <Register />
           </Suspense>
         }
@@ -97,7 +98,7 @@ function ViewsRouter() {
         <Route
         path="*"
         element={
-          <Suspense fallback={"Loading..."}>
+          <Suspense fallback={<Loading/>}>
             <Error404 />
           </Suspense>
         }

@@ -81,7 +81,7 @@ class Controlls {
     window.location = urlNextSong;
   }
 
-  async like(obData,id) {
+  async like(item, id) {
     const btnLike = document.querySelector("#Product__button--like");
     const btnUnlike = document.querySelector("#Product__button--unlike");
     switch (!!btnLike) {
@@ -90,23 +90,26 @@ class Controlls {
         btnLike.classList.remove("block");
         btnUnlike.classList.add("block");
         btnLike.classList.add("hidden");
-        obData.like = obData.like + 1;
-        obData.idUser =id
+        item.like = item.like + 1;
+        item.idUser = id;
         Promise.all([
           axios.patch(
-            "http://localhost:3000/discover/format-json/uploadLiked/", obData),
-            axios.put(
-              "http://localhost:3000/account//views-data//update/like", {addlike:"addlike",id,idItem:obData._id}),
-           
+            "/discover/client/crud/update/item",
+            item
+          ),
+          axios.patch("/account/client/crud/update/like", {
+            methodLike: "addlike",
+            id,
+            idItem: item._id,
+          }),
         ])
-       
-          .then((response) => {
-            console.log(response);
-          });
+        .then(([response,adas]) => {
+          console.log(response,adas );
+        });
         break;
     }
   }
-  async unlike(obData,id) {
+  async unlike(item, id) {
     const btnLike = document.querySelector("#Product__button--like");
     const btnUnlike = document.querySelector("#Product__button--unlike");
     switch (!!btnUnlike) {
@@ -115,19 +118,22 @@ class Controlls {
         btnUnlike.classList.remove("block");
         btnLike.classList.add("block");
         btnUnlike.classList.add("hidden");
-        obData.like = obData.like - 1;
-                obData.idUser =id
+        item.like = item.like - 1;
+        item.idUser = id;
         Promise.all([
           axios.patch(
-            "http://localhost:3000/discover/format-json/uploadLiked/", obData),
-            axios.put(
-              "http://localhost:3000/account//views-data//update/like", {addlike:"unlike",id,idItem:obData._id}),
-           
+            "/discover/client/crud/update/item",
+            item
+          ),
+          axios.patch("/account/client/crud/update/like", {
+            methodLike: "unlike",
+            id,
+            idItem: item._id,
+          }),
         ])
-       
-          .then((response) => {
-            console.log(response);
-          });
+        .then((response) => {
+          console.log(response);
+        });
         break;
     }
   }

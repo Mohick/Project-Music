@@ -4,12 +4,12 @@ import React from "react"
 function ViewContentTopTrending() {
    const [api,setApi] = useState([])
    useEffect(()=>{
-    axios.get('http://localhost:3000/discover/format-json/')
+    axios.get('/discover/format-json/')
     .then((response)=>{
        const array = response.data.sort((a,b) => {
             return b.like - a.like;
         }).slice(0,6)
-       
+        
         setApi(array)
     })
    },[])
@@ -19,7 +19,7 @@ function ViewContentTopTrending() {
                 {api.map((data,index) =>{
 
              return  <React.Fragment key={index}>
-             <a key={index} href={"/song/"+data.titleMusical+"/"+data._id} className="max-w-80 min-w-56 topTrending__box--content--items block rounded-lg p-1 bg-white">
+             <a key={index} href={"/song/"+data.titleMusical+"/"+data._id} className="max-w-80 w-full min-w-56 topTrending__box--content--items block rounded-lg p-1 bg-white">
                     <div className="w-full">
                         <img className="w-full topTrending__box--items--img   h-40 rounded-lg" src={data.imageMusical} alt="" />
                     </div>

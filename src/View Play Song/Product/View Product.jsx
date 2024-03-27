@@ -8,31 +8,50 @@ import axios from "axios";
 function Product() {
   const navigate = useNavigate();
   const { id, slug, title } = useParams();
-  const [data, setData] = useState({item:0, user:0});
+  const [data, setData] = useState({ item: {}, user: 0 });
 
   useEffect(() => {
     let check = true;
     if (check) {
       Controlls.valueSong();
       window.scrollTo(0, { behavior: "smooth" });
-     Promise.all([
-      axios.get("http://localhost:3000/discover/format-json/"),
-      axios .get("http://localhost:3000/account/format-json/session/account/", { withCredentials: true})
-     ])
-        .then(([itemsData,userData]) => {
-          const items = itemsData.data;
-          const user = userData.data
-          const item = items.filter((item) => item._id === id);
-          const  checkID = user.liked.filter(idSong =>{
-            console.log(idSong == id);
-            return idSong == id
-          })
-          console.log(checkID);
-          setData({item:item[0], user:user,id:checkID});
-        
-        });
+      Promise.all([
+        axios.get("/discover/format-json/"),
+        axios.get("/account/client/automatic/login/", {
+          withCredentials: true,
+        }),
+      ]).then(([itemsData, userData]) => {
+        const items = itemsData.data;
+        const user = userData.data;
+        const item = items.filter((item) => item._id === id);
+        if (!!user._id) {
+          const checkID = user.liked.filter((idSong) => {
+            return idSong == id;
+          });
+          
+          setData({
+            item: item[0],
+            _id: user._id,
+            username: user.username,
+            email: user.email,
+            password: user.password,
+            liked: checkID.length == 0,
+            playList: user.playList,
+          });
+        } else {
+          setData({
+            item: item[0],
+            _id: false,
+            username: false,
+            email: false,
+            password: false,
+            liked: false,
+            playList: false,
+          });
+        }
+      });
     }
-    return () => (check = false);
+    return () => (check = true);
   }, []);
   return (
     <div>
@@ -54,7 +73,7 @@ function Product() {
             <div className="product__duration--audio">00:00</div>
           </div>
           <input
-            step={0.01}
+            step={0.0001}
             defaultValue={0}
             min={0}
             max={1}
@@ -227,20 +246,23 @@ function Product() {
             </svg>
           </a>
 
-          <ViewLike id={data.user._id} item={data.item}  idUser={!!data.id?data.id:[]} />
+          <ViewLike
+           item={data.item}
+           userHasBeenLike={data.liked}
+           userID={data._id}
+           like={data.item.like}
+          />
         </div>
       </div>
-        <audio
-          id="myAudio"
-          src={data.item.audioMusical}
-          className="hidden"
-          autoPlay={true}
-          controls
-        ></audio>
-      <div className="hidden" id="automaticRunFunc">
-      </div>
+      <audio
+        id="myAudio"
+        src={data.item.audioMusical}
+        className="hidden"
+        autoPlay={true}
+        controls
+      ></audio>
+      <div className="hidden" id="automaticRunFunc"></div>
     </div>
-   
   );
 }
 

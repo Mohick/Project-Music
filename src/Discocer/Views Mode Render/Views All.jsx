@@ -1,18 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ControllAudio from "./Controll Audio/Controll";
+import './CSS Conntent.css'
+
 function ViewAll() {
   const [api, setApi] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/discover/format-json/").then((data) => {
+    axios.get("/discover/format-json/").then((data) => {
       setApi(data.data);
     });
   }, []);
 
   return (
     <div className="container  text-white pb-3 mt-3 m-auto">
-      <div className="border  max-h-96 overflow-y-auto p-1">
+      <div className="discover__container--items border  max-h-96 overflow-y-auto p-1">
         {api.map((item, index) => {
           return (
             <div key={index} className="flex border p-1 mb-2 ">

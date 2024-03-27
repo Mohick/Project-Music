@@ -1,16 +1,16 @@
-import ViewContentRecentLike from "./View Content Recent Like";
+import ViewsContentNewSong from './Views Content New Song';
 import '../Top Trending/Top Trending.css'
-function ViewRecentLikes() {
+function ViewRNewSong() {
   return (
     <div className="container recent__like--container mt-6 m-auto">
       <div className="text-white sm:flex-2 sm:flex sm:justify-start sm:self-end text-3xl sm:order-1 flex-1 mt-2 order-1">
         <div className=" font-bold">
-          Recent Like <span className="text-red-600">&#35;</span>
+          New Songs <span className="text-red-600">&#35;</span>
         </div>
       </div>
-      <ViewContentRecentLike />
+      <ViewsContentNewSong />
     </div>
   );
 }
 
-export default ViewRecentLikes;
+export default ViewRNewSong;

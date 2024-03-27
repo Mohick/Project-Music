@@ -1,31 +1,17 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
 import React from "react";
-import "./Recent like.css";
-function ViewContentRecentLike() {
+function ViewsContentNewSong() {
   const [api, setApi] = useState([]);
   useEffect(() => {
-    Promise.all([
-      axios.get("/discover/format-json/"),
-      axios.get("/account/client/automatic/login/", {
-        withCredentials: true,
-      }),
-    ]).then(([items, user]) => {
+    axios.get("/discover/format-json/").then((items) => {
       const data = items.data;
-      const owner = user.data;
-      let idMuicHaveBeenLike = new Map();
-      owner.liked?.forEach((idItems) => {
-        idMuicHaveBeenLike.set(idItems, idItems);
-      });
-      const obKeyItems = Object.fromEntries(idMuicHaveBeenLike);
-      const array = data
-        .filter((item) => {
-          return item._id == obKeyItems[item._id];
-        })
-        .slice(-6);
-      setApi(array);
+      
+      setApi(data.slice(-6).reverse() );
     });
+
   }, []);
+
   return (
     <div className="container mt-4 m-auto">
       <div className="flex gap-2  rencentLike__box--content  overflow-x-auto">
@@ -35,7 +21,7 @@ function ViewContentRecentLike() {
               <React.Fragment key={index}>
                 <a
                   href={"/song/" + data.titleMusical + "/" + data._id}
-                  className="max-w-80 w-full min-w-56 rencentLike__box--content--items block rounded-lg p-1 bg-white"
+                  className="max-w-80 min-w-56 w-full rencentLike__box--content--items block rounded-lg p-1 bg-white"
                 >
                   <div className="w-full">
                     <img
@@ -65,7 +51,7 @@ function ViewContentRecentLike() {
         ) : (
           <div className="flex-1">
             <h3 className="text-center text-white text-2xl p-6 w-full">
-              You haven't liked any songs yet !
+              You haven't liked any songs yet!
             </h3>
           </div>
         )}
@@ -74,4 +60,4 @@ function ViewContentRecentLike() {
   );
 }
 
-export default ViewContentRecentLike;
+export default ViewsContentNewSong;

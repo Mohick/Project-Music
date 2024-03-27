@@ -1,0 +1,166 @@
+
+
+.loading__column--item--1,
+.loading__column--item--2,
+.loading__column--item--3,
+.loading__column--item--4,
+.loading__column--item--5,
+.loading__column--item--6 {
+    height: 30px;
+    background: #000;
+    width: 5px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    position: relative;
+}
+
+@keyframes loading__column {
+    0% {
+        top: -30%;
+    }
+    50%{
+        top: 0%;
+    }
+    100% {
+        top: -30%;
+    }
+}
+.loading__column--item--1::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    height: 30px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    animation: loading__column .6s linear infinite;
+    -webkit-animation: loading__column .6s linear infinite;
+    animation-delay: 0;
+}
+.loading__column--item--2::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    height: 30px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    animation: loading__column .6s linear infinite;
+    -webkit-animation: loading__column .6s linear infinite;
+    animation-delay: .1s;
+
+}
+.loading__column--item--3::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    height: 30px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    animation: loading__column .6s linear infinite;
+    -webkit-animation: loading__column .6s linear infinite;
+    animation-delay: .2s;
+}
+.loading__column--item--4::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    height: 30px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    animation: loading__column .6s linear infinite;
+    -webkit-animation: loading__column .6s linear infinite;
+    animation-delay: .3s;
+}
+.loading__column--item--5::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    height: 30px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    animation: loading__column .6s linear infinite;
+    -webkit-animation: loading__column .6s linear infinite;
+    animation-delay: .4s;
+
+}
+.loading__column--item--6::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    height: 30px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    animation: loading__column .6s linear infinite;
+    -webkit-animation: loading__column .6s linear infinite;
+    animation-delay: .5s;
+
+}
+
+.loading__dot--1{
+    animation: jump .6s linear infinite;
+    -webkit-animation: jump .6s linear infinite;
+    animation-delay: .1s;
+}
+.loading__dot--2{
+    animation: jump .6s linear infinite;
+    -webkit-animation: jump .6s linear infinite;
+    animation-delay: .2s;
+}
+.loading__dot--3{
+    animation: jump .6s linear infinite;
+    -webkit-animation: jump .6s linear infinite;
+    animation-delay: .3s;
+}
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+        -webkit-transform: translateY(-4px);
+        -moz-transform: translateY(-4px);
+        -ms-transform: translateY(-4px);
+        -o-transform: translateY(-4px);
+}
+    100% {
+        transform: translateY(0);
+    }
+}
