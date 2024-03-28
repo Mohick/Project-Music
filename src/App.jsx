@@ -2,10 +2,8 @@ import "./App.css";
 import ViewsRouter from "./Router/views router";
 import HeaderView from "./Header/Header Page";
 import Footer from "./Footer/View Footer";
-import axios from "axios";
 
 function App() {
- axios.defaults.url = 'http://localhost:3000'
 
   return (
     <>

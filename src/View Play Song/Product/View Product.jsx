@@ -16,8 +16,8 @@ function Product() {
       Controlls.valueSong();
       window.scrollTo(0, { behavior: "smooth" });
       Promise.all([
-        axios.get("/discover/format-json/"),
-        axios.get("/account/client/automatic/login/", {
+        axios.get("http://localhost:3000/discover/format-json/"),
+        axios.get("http://localhost:3000/account/client/automatic/login/", {
           withCredentials: true,
         }),
       ]).then(([itemsData, userData]) => {

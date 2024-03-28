@@ -1,5 +1,5 @@
 function handleModalMenu() {
-  const modal = document.getElementById("modal__nenu");
+  const modal = document.getElementById("modal__menu");
 
   switch (!!modal) {
     case modal.classList.contains("hidden"):

@@ -17,38 +17,41 @@ function HeaderView() {
     let checked = true;
     if (checked) {
       Promise.all([
-        axios.get("/account/client/automatic/login/", {
+        axios.get("http://localhost:3000/account/client/automatic/login/", {
           withCredentials: true,
         }),
-        axios.get("/discover/format-json/"),
+        axios.get("http://localhost:3000/discover/format-json/"),
       ]).then(([account, discover]) => {
-        account = account.data
-        discover = discover.data
+        account = account.data;
+        discover = discover.data;
         console.log(account);
         setUser({
-          checkUSer:!!account.message,
+          checkUSer: !!account.message,
           discover: discover,
-          _id:account._id,
+          _id: account._id,
           username: account.username,
           email: account.email,
           password: account.password,
           liked: account.liked,
-          playList : account.playList
+          playList: account.playList,
         });
       });
     }
     return () => (checked = false);
   }, []);
-  console.log(user);
   return (
     <header
       id="header"
-      className=" z-50 top-0  py-1 sm:p-0 fixed bg-blue-300 left-0  right-0 "
+      className="z-50 top-0   sm:py-2  fixed bg-black left-0  right-0 "
     >
-      <div className="container gap-8 p-1 sm:p-0 m-auto flex ">
+      <div className="container  gap-8 p-1 sm:p-0 m-auto flex ">
         {/* logo */}
         <div className="flex order-1  items-center">
-          <Link className="block  font-bold text-3xl" to="/">
+          <Link
+            id="header__box--logo"
+            className="block uppercase text-white font-bold text-3xl"
+            to="/"
+          >
             <i>Best Music</i>
           </Link>
         </div>
@@ -61,7 +64,8 @@ function HeaderView() {
           <div className="w-full sm:flex relative hidden items-center md:flex">
             <input
               id="header__search--item"
-              className="w-full   rounded-s-md outline-none bg-white px-2"
+              placeholder="Name Song . . ."
+              className="w-full  p-1 rounded-s-md outline-none bg-white px-2"
               type="search"
               onChange={(e) => handleSearch(user.discover, e.target)}
               onBlur={(e) => offDropDownSearch(e)}
@@ -70,7 +74,7 @@ function HeaderView() {
               type="submit"
               onClick={btnSearch}
               value={"Search"}
-              className="rounded-e-md  hover:bg-slate-100 cursor-pointer bg-slate-200  px-2"
+              className="rounded-e-md p-1 hover:bg-slate-100 cursor-pointer bg-white border-l-2    px-2"
             />
 
             <div
@@ -80,7 +84,7 @@ function HeaderView() {
           </div>
         </div>
         {/* check user on  <=	1024px */}
-        <div className="header__box--login  relative justify-end order-3 flex  gap-2 items-center">
+        <div className="header__box--login text-white  relative justify-end order-3 flex  gap-2 items-center">
           {!user.checkUSer ? (
             <>
               <div className="hidden  lg:block truncate max-w-24">
@@ -101,11 +105,15 @@ function HeaderView() {
             </>
           ) : (
             <>
-              <div className="hidden capitalize lg:block">
-                <Link to="/login">Login</Link>
+              <div className="hidden p-1 capitalize lg:block text-center  rounded-md hover:bg-green-200 bg-green-300 ">
+                <Link className="block" to="/login">
+                  Login
+                </Link>
               </div>
-              <div className="hidden capitalize lg:block">
-                <Link to="/register/">register</Link>
+              <div className="hidden  capitalize lg:block text-center p-1 rounded-md hover:bg-blue-200 bg-blue-300 ">
+                <Link className="block" to="/register/">
+                  register
+                </Link>
               </div>
             </>
           )}
@@ -127,30 +135,31 @@ function HeaderView() {
         </div>
       </div>
       <div className="block z-10 lg:hidden">
-        <ViewModalMenu data={
-          {username:user.username,
-            email:user.email,
-            password:user.password,
-            liekd:user.liekd,
-            playList:user.playList,
-          }
-          } />
+        <ViewModalMenu
+          data={{
+            username: user.username,
+            email: user.email,
+            password: user.password,
+            liekd: user.liekd,
+            playList: user.playList,
+          }}
+        />
       </div>
-      <div className="w-full relative sm:hidden p-1 flex justify-end">
+      <div className="header__box__search--menu w-full relative sm:hidden  p-1  flex justify-end">
         <input
+          placeholder="Name Song . . ."
           id="header__search--item--mobi"
-          className="w-full focus:fixed rounded-s-sm top-0  left-0 right-0 outline-none bg-white px-2"
+          className="w-full focus:fixed focus:rounded-sm focus:z-40 rounded-s-sm top-0  left-0 right-0 outline-none bg-white px-2"
           type="search"
         />
         <input
           type="submit"
-          value={"Search"}
           onClick={btnSearchMobi}
-          className="  cursor-pointer rounded-e-sm bg-slate-200  px-2"
+          value={"Search"}
+          className="  cursor-pointer border-l-2  rounded-e-sm bg-white  px-2"
         />
       </div>
     </header>
-   
   );
 }
 

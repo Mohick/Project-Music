@@ -94,10 +94,10 @@ class Controlls {
         item.idUser = id;
         Promise.all([
           axios.patch(
-            "/discover/client/crud/update/item",
+            "http://localhost:3000/discover/client/crud/update/item",
             item
           ),
-          axios.patch("/account/client/crud/update/like", {
+          axios.patch("http://localhost:3000/account/client/crud/update/like", {
             methodLike: "addlike",
             id,
             idItem: item._id,
@@ -122,10 +122,10 @@ class Controlls {
         item.idUser = id;
         Promise.all([
           axios.patch(
-            "/discover/client/crud/update/item",
+            "http://localhost:3000/discover/client/crud/update/item",
             item
           ),
-          axios.patch("/account/client/crud/update/like", {
+          axios.patch("http://localhost:3000/account/client/crud/update/like", {
             methodLike: "unlike",
             id,
             idItem: item._id,

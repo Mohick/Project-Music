@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 function  Error404() {
 
@@ -5,7 +6,7 @@ function  Error404() {
         <div className="container h-full m-auto">
         <div className="flex justify-center h-full flex-col items-center">
         <h1 className="text-center text-9xl">404 <span className="text-3xl block sm:inline-block">Page Not Found</span></h1>
-        <h1 className="text-center">Sorry, the page you are looking for does not exist. <a href="/" className="block   md:inline-block  text-blue-300">CliCk Me Back To Home Page !</a></h1>
+        <h1 className="text-center">Sorry, the page you are looking for does not exist. <Link to="/" className="block   md:inline-block  text-blue-300">CliCk Me Back To Home Page !</Link></h1>
         </div>
         </div>
     </div>

@@ -1,25 +1,26 @@
 import { memo } from "react";
 import { handleModalMenu } from "./Handle ModalMenu";
 import { Link } from "react-router-dom";
-import {   } from "../handle logout";
+import {} from "../handle logout";
+import './Views Modal.css'
 function ViewModalMenu({ data }) {
   
   return (
     <div
-      id="modal__nenu"
+      id="modal__menu"
       onClick={handleModalMenu}
-      className="fixed hidden bg-black/50 left-0 top-0 z-10 right-0 bottom-0 cursor-pointer"
+      className="fixed hidden font-bold bg-black/50 left-0 top-0 z-10 right-0 bottom-0 cursor-pointer"
     >
       <div
-        className=" cursor-default h-full max-w-96 overflow-y-auto p-2 bg-white modal__menu-form"
+        className="modal__menu--box--content rounded-md open--slider cursor-default h-full max-w-96  p-2 bg-black modal__menu-form"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="overflow-y-auto">
+        <div className=" h-full">
           <div className="w-full flex justify-end">
             <svg
               onClick={handleModalMenu}
               xmlns="http://www.w3.org/2000/svg"
-              className="block h-5 cursor-pointer"
+              className="block fill-white h-5 cursor-pointer"
               viewBox="0 0 384 512"
             >
               <path
@@ -29,18 +30,16 @@ function ViewModalMenu({ data }) {
               />
             </svg>
           </div>
-          <div className="mt-5">
-            
-            {!!data ? (
+          <div className="mt-5 text-white overflow-y-auto h-full">
+            {!!data.email ? (
               <>
                 <div className="text-center mb-3">
-                  <div>
-                    Username: {data.username}
-                  </div>
+                  <div>Username: {data.username}</div>
                 </div>
                 <ul className="flex flex-col gap-2">
                   <li className="text-center">
                     <Link
+                      onClick={handleModalMenu}
                       className=" p-1 bg-white hover:bg-slate-200 block"
                       to="/"
                     >
@@ -49,6 +48,7 @@ function ViewModalMenu({ data }) {
                   </li>
                   <li className="text-center">
                     <Link
+                      onClick={handleModalMenu}
                       className=" p-1 bg-white hover:bg-slate-200 block"
                       to="/Setting"
                     >
@@ -57,8 +57,9 @@ function ViewModalMenu({ data }) {
                   </li>
                   <li className="text-center">
                     <Link
-                      className=" p-1 bg-white hover:bg-slate-200 block"
-                      to="/Discover"
+                      onClick={handleModalMenu}
+                      to="/discover"
+                      className=" p-1 mb-3 bg-white hover:bg-slate-200 block"
                     >
                       Discover
                     </Link>
@@ -66,24 +67,34 @@ function ViewModalMenu({ data }) {
                 </ul>
               </>
             ) : (
-              <ul className="flex flex-col gap-2">
-                <li className="text-center">
-                  <a
-                    className=" p-1 hover:bg-green-200 bg-green-300 block"
-                    href="/login/"
+              <div className="flex flex-col h-4/5 justify-around gap-2">
+                <div className="flex-1 ">
+                  <Link
+                    onClick={handleModalMenu}
+                    to={"/Discover"}
+                    className="capitalize border-b   text-center block "
+                  >
+                    Discover
+                  </Link>
+                  
+                </div>
+                <div className="grid gap-2">
+                  <Link
+                    onClick={handleModalMenu}
+                    to={"/login"}
+                    className="text-center p-1 rounded-md hover:bg-green-200 bg-green-300 block"
                   >
                     Login
-                  </a>
-                </li>
-                <li className="text-center">
-                  <a
-                    className=" p-1 hover:bg-blue-200 bg-blue-300 block"
-                    href="/register/"
+                  </Link>
+                  <Link
+                    onClick={handleModalMenu}
+                    to={"/register"}
+                    className="text-center p-1 rounded-md hover:bg-blue-200 bg-blue-300 block"
                   >
                     Register
-                  </a>
-                </li>
-              </ul>
+                  </Link>
+                </div>
+              </div>
             )}
           </div>
         </div>

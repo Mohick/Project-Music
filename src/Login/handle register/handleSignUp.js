@@ -20,7 +20,7 @@ class HandleSignUp {
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
       axios
         .get(
-          `/account/client/${email.value.trim()}` 
+          `http://localhost:3000/account/client/${email.value.trim()}` 
         )
         .then((response) => {
           if (!!response.data.result) {
@@ -181,7 +181,7 @@ class HandleSignUp {
       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
         axios
           .get(
-            `/account/client/${email.value.trim()}`
+            `http://localhost:3000/account/client/${email.value.trim()}`
           )
           .then((response) => {
             if (!!response.data.result) {
@@ -211,7 +211,7 @@ class HandleSignUp {
       }
     }
     function createAccount(items) {
-      axios.post("/account/client/crud/create/",items,{
+      axios.post("http://localhost:3000/account/client/crud/create/",items,{
           withCredentials: true,
           credentials: 'include',
         }).then((response) => {

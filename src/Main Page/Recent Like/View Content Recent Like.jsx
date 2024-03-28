@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import React from "react";
 import "./Recent like.css";
+import { Link } from "react-router-dom";
 function ViewContentRecentLike() {
   const [api, setApi] = useState([]);
   useEffect(() => {
     Promise.all([
-      axios.get("/discover/format-json/"),
-      axios.get("/account/client/automatic/login/", {
+      axios.get("http://localhost:3000/discover/format-json/"),
+      axios.get("http://localhost:3000/account/client/automatic/login/", {
         withCredentials: true,
       }),
     ]).then(([items, user]) => {
@@ -27,18 +28,19 @@ function ViewContentRecentLike() {
     });
   }, []);
   return (
-    <div className="container mt-4 m-auto">
+    <div className="container mt-7 m-auto">
       <div className="flex gap-2  rencentLike__box--content  overflow-x-auto">
         {api.length > 0 ? (
           api.map((data, index) => {
             return (
               <React.Fragment key={index}>
-                <a
-                  href={"/song/" + data.titleMusical + "/" + data._id}
+                <Link
+                  to={"/song/" + data.titleMusical + "/" + data._id}
                   className="max-w-80 w-full min-w-56 rencentLike__box--content--items block rounded-lg p-1 bg-white"
                 >
                   <div className="w-full">
                     <img
+                      loading="lazy"
                       className="w-full  rencentLike__box--items--img   h-40 rounded-lg"
                       src={data.imageMusical}
                       alt=""
@@ -58,7 +60,7 @@ function ViewContentRecentLike() {
                       {data.nameSinger}{" "}
                     </div>
                   </div>
-                </a>
+                </Link>
               </React.Fragment>
             );
           })

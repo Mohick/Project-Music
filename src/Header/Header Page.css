@@ -9,7 +9,37 @@
     display: block;
 }
 
+#header {
+    box-shadow: 0 0 1px white;
+}
 
-/* #header__search--item:focus ~ #header__dropdown__search--item {
-    display: block;
-} */
+
+#header__box--logo {
+    animation: logoDance .4s linear infinite;
+    -webkit-animation: logoDance .4s linear infinite;
+}
+
+.header__box__search--menu:focus-within::after {
+    content: 'asdsad';
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background-color: black;
+    opacity: 0.5;
+}
+
+
+@keyframes logoDance {
+ from {
+    text-shadow: 2px 2px 0px violet;
+ }
+ 50%{
+    text-shadow: -2px -1px 0px violet;
+
+ }
+ to {
+    text-shadow: 2px 2px 0px violet;
+ }
+}

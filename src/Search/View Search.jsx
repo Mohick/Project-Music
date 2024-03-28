@@ -10,7 +10,7 @@ function  SearchResult() {
 
     const [item, setitem] = useState([]);
     useEffect(()=>{
-        axios.get('/discover/format-json/').then((response)=>{
+        axios.get('http://localhost:3000/discover/format-json/').then((response)=>{
            const data = response.data
            const items = data.filter((data) => data.titleMusical.trim().toLocaleLowerCase().includes(title.trim().toLocaleLowerCase()))
            setitem(items)

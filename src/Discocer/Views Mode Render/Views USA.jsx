@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ControllAudio from "./Controll Audio/Controll";
-import './CSS Conntent.css'
+import { Link } from "react-router-dom";
 function ViewUSA() {
   const [api, setApi] = useState([]);
 
   useEffect(() => {
-    axios.get("/discover/format-json/").then((res) => {
+    axios.get("http://localhost:3000/discover/format-json/").then((res) => {
       const itemsUSA = res.data.filter(item => (""+item.country).trim().toLowerCase() == "USA".trim().toLowerCase());
       setApi(itemsUSA);
     });
@@ -14,26 +14,32 @@ function ViewUSA() {
 
   return (
     <div className="container  text-white pb-3 mt-3 m-auto">
-      <div className="border discover__container--items  max-h-96 overflow-y-auto p-1">
+      <div className="border discover__container--items rounded max-h-96 overflow-y-auto p-1">
         {api.map((item, index) => {
-          return (
-            <div key={index} className="flex border p-1 mb-2 ">
-              <a className="block flex-1 " href={`/song/${item.titleMusical}/${item._id}`}>
+         return (
+          <div key={index} className="flex p-1 border mb-2 ">
+            <div className="flex-1 overflow-hidden">
+              <Link
+                className="block truncate"
+                to={`/song/${item.titleMusical}/${item._id}`}
+              >
                 <div>
                   <div className="font-bold capitalize truncate">
                     Name Song :
-                    <span className="ml-2 truncate  font-normal">
+                    <span className="ml-2 truncate font-normal">
                       {item.titleMusical}
                     </span>
                   </div>
                   <div className="font-bold capitalize opacity-55 text-xs truncate">
                     name singer :
-                    <span className="ml-2 truncate  font-normal ">
+                    <span className="ml-2 truncate font-normal ">
                       {item.nameSinger}
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
+            </div>
+            <div>
               <div className="grid  grid-cols-2 cursor-pointer gap-5 items-center">
                 <div className="p-1">
                   <svg
@@ -47,9 +53,9 @@ function ViewUSA() {
                   >
                     <path
                       d="M48.5 224H40c-13.3 0-24-10.7-24-24V72c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 
-                       5.2L98.6 96.6c87.6-86.5 228.7-86.2 315.8 1c87.5 87.5 87.5 229.3 0 316.8s-229.3 87.5-316.8
-                        0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3c-62.2-62.2-162.7-62.5-225.3-1L185
-                         183c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8H48.5z"
+                     5.2L98.6 96.6c87.6-86.5 228.7-86.2 315.8 1c87.5 87.5 87.5 229.3 0 316.8s-229.3 87.5-316.8
+                      0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3c-62.2-62.2-162.7-62.5-225.3-1L185
+                       183c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8H48.5z"
                     />
                   </svg>
                 </div>
@@ -83,7 +89,7 @@ function ViewUSA() {
                     >
                       <path
                         d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 
-               48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+             48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
                       />
                     </svg>
                   </div>
@@ -96,7 +102,8 @@ function ViewUSA() {
                 ></audio>
               </div>
             </div>
-          );
+          </div>
+        );
         })}
       </div>
     </div>

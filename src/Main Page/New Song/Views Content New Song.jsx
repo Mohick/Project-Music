@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import React from "react";
+import { Link } from "react-router-dom";
 function ViewsContentNewSong() {
   const [api, setApi] = useState([]);
   useEffect(() => {
-    axios.get("/discover/format-json/").then((items) => {
+    axios.get("http://localhost:3000/discover/format-json/").then((items) => {
       const data = items.data;
       
       setApi(data.slice(-6).reverse() );
@@ -13,18 +14,19 @@ function ViewsContentNewSong() {
   }, []);
 
   return (
-    <div className="container mt-4 m-auto">
-      <div className="flex gap-2  rencentLike__box--content  overflow-x-auto">
+    <div className="container mt-7 m-auto">
+      <div className="flex gap-2  rencentLike__box--content pb-3  overflow-x-auto">
         {api.length > 0 ? (
           api.map((data, index) => {
             return (
               <React.Fragment key={index}>
-                <a
-                  href={"/song/" + data.titleMusical + "/" + data._id}
+                <Link
+                  to={"/song/" + data.titleMusical + "/" + data._id}
                   className="max-w-80 min-w-56 w-full rencentLike__box--content--items block rounded-lg p-1 bg-white"
                 >
                   <div className="w-full">
                     <img
+                      loading="lazy"
                       className="w-full  rencentLike__box--items--img   h-40 rounded-lg"
                       src={data.imageMusical}
                       alt=""
@@ -44,7 +46,7 @@ function ViewsContentNewSong() {
                       {data.nameSinger}{" "}
                     </div>
                   </div>
-                </a>
+                </Link>
               </React.Fragment>
             );
           })
