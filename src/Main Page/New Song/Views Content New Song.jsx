@@ -7,7 +7,7 @@ import { addressIpApi } from "../../URL__CONNECT__API";
 function ViewsContentNewSong() {
   const [api, setApi] = useState([]);
   useEffect(() => {
-    axios.get(`${addressIpApi}/discover/format-json/`).then((items) => {
+    axios.get(`https://api-best-music.onrender.com/discover/format-json/`).then((items) => {
       const data = items.data;
 
       setApi(data.slice(-6).reverse());

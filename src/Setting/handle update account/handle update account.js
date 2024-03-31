@@ -116,7 +116,7 @@ class HandleUpdateAccount {
         
         const alertEmail=document.querySelector(".setting__box__edit--alert--email ")
        if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputEmail)){
-       axios.get(`${addressIpApi}/account/client/checkbeforeupdate?id=${account._id}&email=${inputEmail}`)
+       axios.get(`https://api-best-music.onrender.com/account/client/checkbeforeupdate?id=${account._id}&email=${inputEmail}`)
        .then (res =>{
            if(JSON.parse(res.data.email)) {
             alertEmail.classList.remove("text-red-400")
@@ -135,7 +135,7 @@ class HandleUpdateAccount {
                         password:inputPassword
                     }
                 }
-                axios.patch(`${addressIpApi}/account/client/crud/update`,obAccount,{
+                axios.patch(`https://api-best-music.onrender.com/account/client/crud/update`,obAccount,{
                     withCredentials: true,
                     credentials: 'include',
                   })
@@ -155,7 +155,7 @@ class HandleUpdateAccount {
         const inputEmail = e.target.value.trim()
         const alertEmail=document.querySelector(".setting__box__edit--alert--email ")
        if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputEmail)){
-       axios.get(`${addressIpApi}/account/client/checkbeforeupdate?id=${account._id}&email=${inputEmail}`)
+       axios.get(`https://api-best-music.onrender.com/account/client/checkbeforeupdate?id=${account._id}&email=${inputEmail}`)
        .then (res =>{
            if(JSON.parse(res.data.email)) {
             alertEmail.classList.remove("text-red-400")

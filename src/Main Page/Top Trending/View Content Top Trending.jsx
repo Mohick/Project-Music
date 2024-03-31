@@ -7,7 +7,7 @@ function ViewContentTopTrending() {
   const [api, setApi] = useState([]);
   useEffect(() => {
     axios
-      .get(`${addressIpApi}/discover/format-json/`)
+      .get(`https://api-best-music.onrender.com/discover/format-json/`)
       .then((response) => {
         const array = response.data
           .sort((a, b) => {

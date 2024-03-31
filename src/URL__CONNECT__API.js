@@ -1,6 +1,6 @@
 
 function  addressIpApi() {
-    return 'https://api-best-music.onrender.com'.trim()
+    return 'http://localhost:3000'.trim()
 }
-
+console.log(addressIpApi() );
 export {addressIpApi}

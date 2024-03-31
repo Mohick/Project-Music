@@ -12,7 +12,7 @@ function OthersProduct() {
     let check = true;
     if (check) {
       axios
-        .get(`${addressIpApi}/discover/format-json/`)
+        .get(`https://api-best-music.onrender.com/discover/format-json/`)
         .then((response) => {
           const data = response.data;
           const items = data.filter((data) => data._id !== id);

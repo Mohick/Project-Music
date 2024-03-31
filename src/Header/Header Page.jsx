@@ -18,10 +18,10 @@ function HeaderView() {
     let checked = true;
     if (checked) {
       Promise.all([
-        axios.get(`${addressIpApi}/account/client/automatic/login/`, {
+        axios.get(`https://api-best-music.onrender.com/account/client/automatic/login/`, {
           withCredentials: true,
         }),
-        axios.get(`${addressIpApi}/discover/format-json/`),
+        axios.get(`https://api-best-music.onrender.com/discover/format-json/`),
       ]).then(([account, discover]) => {
         account = account.data;
         discover = discover.data;

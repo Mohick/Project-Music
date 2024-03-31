@@ -21,7 +21,7 @@ class HandleSignUp {
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
       axios
         .get(
-          `${addressIpApi}/account/client/${email.value.trim()}` 
+          `https://api-best-music.onrender.com/account/client/${email.value.trim()}` 
         )
         .then((response) => {
           if (!!response.data.result) {
@@ -182,7 +182,7 @@ class HandleSignUp {
       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
         axios
           .get(
-            `${addressIpApi}/account/client/${email.value.trim()}`
+            `https://api-best-music.onrender.com/account/client/${email.value.trim()}`
           )
           .then((response) => {
             if (!!response.data.result) {
@@ -212,7 +212,7 @@ class HandleSignUp {
       }
     }
     function createAccount(items) {
-      axios.post("${addressIpApi}/account/client/crud/create/",items,{
+      axios.post("https://api-best-music.onrender.com/account/client/crud/create/",items,{
           withCredentials: true,
           credentials: 'include',
         }).then((response) => {

@@ -8,7 +8,7 @@ function ViewVN() {
   const [api, setApi] = useState([]);
 
   useEffect(() => {
-    axios.get(`${addressIpApi}/discover/format-json/`).then((res) => {
+    axios.get(`https://api-best-music.onrender.com/discover/format-json/`).then((res) => {
       const itemsVN = res.data.filter(
         (item) =>
           ("" + item.country).trim().toLowerCase() == "VN".trim().toLowerCase()

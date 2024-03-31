@@ -1,7 +1,7 @@
 import axios from "axios";
 import { addressIpApi } from "../URL__CONNECT__API";
 function logout() {
-    axios.get(`${addressIpApi}/logout/user`,{withCredentials:true})
+    axios.get(`https://api-best-music.onrender.com/logout/user`,{withCredentials:true})
    
 }
 

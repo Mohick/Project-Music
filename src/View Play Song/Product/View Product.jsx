@@ -17,8 +17,8 @@ function Product() {
       Controlls.valueSong();
       window.scrollTo(0, { behavior: "smooth" });
       Promise.all([
-        axios.get(`${addressIpApi}/discover/format-json/`),
-        axios.get(`${addressIpApi}/account/client/automatic/login/`, {
+        axios.get(`https://api-best-music.onrender.com/discover/format-json/`),
+        axios.get(`https://api-best-music.onrender.com/account/client/automatic/login/`, {
           withCredentials: true,
         }),
       ]).then(([itemsData, userData]) => {

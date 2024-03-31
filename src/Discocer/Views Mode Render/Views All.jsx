@@ -8,7 +8,7 @@ function ViewAll() {
   const [api, setApi] = useState([]);
 
   useEffect(() => {
-    axios.get(`${addressIpApi}/discover/format-json/`).then((data) => {
+    axios.get(`https://api-best-music.onrender.com/discover/format-json/`).then((data) => {
       setApi(data.data);
     });
   }, []);

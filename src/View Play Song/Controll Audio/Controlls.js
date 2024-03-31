@@ -97,10 +97,10 @@ class Controlls {
         item.idUser = id;
         Promise.all([
           axios.patch(
-            `${addressIpApi}/discover/client/crud/update/item`,
+            `https://api-best-music.onrender.com/discover/client/crud/update/item`,
             item
           ),
-          axios.patch(`${addressIpApi}/account/client/crud/update/like`, {
+          axios.patch(`https://api-best-music.onrender.com/account/client/crud/update/like`, {
             methodLike: "addlike",
             id,
             idItem: item._id,
@@ -124,10 +124,10 @@ class Controlls {
         item.idUser = id;
         Promise.all([
           axios.patch(
-            `${addressIpApi}/discover/client/crud/update/item`,
+            `https://api-best-music.onrender.com/discover/client/crud/update/item`,
             item
           ),
-          axios.patch(`${addressIpApi}/account/client/crud/update/like`, {
+          axios.patch(`https://api-best-music.onrender.com/account/client/crud/update/like`, {
             methodLike: "unlike",
             id,
             idItem: item._id,

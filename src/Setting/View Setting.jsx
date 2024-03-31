@@ -11,7 +11,7 @@ function Setting() {
     if (check) {
 
       axios
-        .get(`${addressIpApi}/account/client/automatic/login/`, {
+        .get(`https://api-best-music.onrender.com/account/client/automatic/login/`, {
           withCredentials: true,
         })
         .then((res) => {

@@ -8,8 +8,8 @@ function ViewContentRecentLike() {
   const [api, setApi] = useState([]);
   useEffect(() => {
     Promise.all([
-      axios.get(`${addressIpApi}/discover/format-json/`),
-      axios.get(`${addressIpApi}/account/client/automatic/login/`, {
+      axios.get(`https://api-best-music.onrender.com/discover/format-json/`),
+      axios.get(`https://api-best-music.onrender.com/account/client/automatic/login/`, {
         withCredentials: true,
       }),
     ]).then(([items, user]) => {
