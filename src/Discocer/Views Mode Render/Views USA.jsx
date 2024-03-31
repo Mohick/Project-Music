@@ -2,31 +2,34 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ControllAudio from "./Controll Audio/Controll";
 import { Link } from "react-router-dom";
+import "./CSS Conntent.css";
+import { addressIpApi } from "../../URL__CONNECT__API";
+
 function ViewUSA() {
   const [api, setApi] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/discover/format-json/").then((res) => {
+    axios.get(`${addressIpApi}/discover/format-json/`).then((res) => {
       const itemsUSA = res.data.filter(item => (""+item.country).trim().toLowerCase() == "USA".trim().toLowerCase());
       setApi(itemsUSA);
     });
   }, []);
 
   return (
-    <div className="container  text-white pb-3 mt-3 m-auto">
-      <div className="border discover__container--items rounded max-h-96 overflow-y-auto p-1">
+    <div className="container discover__container--items  text-white pb-3 mt-3 m-auto">
+      <div className="border discover__box--items rounded max-h-96 overflow-y-auto p-1">
         {api.map((item, index) => {
          return (
-          <div key={index} className="flex p-1 border mb-2 ">
+          <div key={index} className="flex p-1 border discover--items mb-3 ">
             <div className="flex-1 overflow-hidden">
-              <Link
+              <a
                 className="block truncate"
-                to={`/song/${item.titleMusical}/${item._id}`}
+                href={`/song/${item.titleMusical}/${item._id}`}
               >
                 <div>
-                  <div className="font-bold capitalize truncate">
+                  <div className="font-bold uppercase truncate">
                     Name Song :
-                    <span className="ml-2 truncate font-normal">
+                    <span className="ml-2 truncate font-bold">
                       {item.titleMusical}
                     </span>
                   </div>
@@ -37,9 +40,9 @@ function ViewUSA() {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </a>
             </div>
-            <div>
+            <div className="flex">
               <div className="grid  grid-cols-2 cursor-pointer gap-5 items-center">
                 <div className="p-1">
                   <svg
@@ -99,6 +102,8 @@ function ViewUSA() {
                   id={`discover__audio--${index}`}
                   controls
                   className="hidden"
+                  preload="none"
+
                 ></audio>
               </div>
             </div>

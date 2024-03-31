@@ -3,7 +3,7 @@ import "./Setting.css";
 import axios from "axios";
 import HandleUpdateAccount from "./handle update account/handle update account";
 import handleUpdateAccount from "./handle update account/handle update account";
-
+import { addressIpApi } from "../URL__CONNECT__API";
 function Setting() {
   const [account, setAccount] = useState({});
   useEffect(() => {
@@ -11,7 +11,7 @@ function Setting() {
     if (check) {
 
       axios
-        .get("/account/client/automatic/login/", {
+        .get(`${addressIpApi}/account/client/automatic/login/`, {
           withCredentials: true,
         })
         .then((res) => {
@@ -41,9 +41,9 @@ function Setting() {
     return () => (check = false);
   }, []);
   return (
-    <div className="container py-3 text-white min-h-screen  m-auto">
-      <div className="border border-white p-4">
-        <div className="w-full text-center capitalize text-4xl">Setting</div>
+    <div className="container py-16  mb-28 text-white   m-auto">
+      <div className="border rounded-lg border-white p-4">
+        <div className="w-full text-center uppercase font-bold text-4xl">Setting</div>
         <div>
           <div className="flex justify-end cursor-pointer items-center">
             <div

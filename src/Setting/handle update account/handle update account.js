@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { addressIpApi } from "../../URL__CONNECT__API";
 class HandleUpdateAccount {
     handlecollapsibleUpdate() {
         const btnEditAccount = document.getElementById('setting__btn--edit--account');
@@ -116,7 +116,7 @@ class HandleUpdateAccount {
         
         const alertEmail=document.querySelector(".setting__box__edit--alert--email ")
        if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputEmail)){
-       axios.get(`http://localhost:3000/account/client/checkbeforeupdate?id=${account._id}&email=${inputEmail}`)
+       axios.get(`${addressIpApi}/account/client/checkbeforeupdate?id=${account._id}&email=${inputEmail}`)
        .then (res =>{
            if(JSON.parse(res.data.email)) {
             alertEmail.classList.remove("text-red-400")
@@ -135,7 +135,7 @@ class HandleUpdateAccount {
                         password:inputPassword
                     }
                 }
-                axios.patch(`http://localhost:3000/account/client/crud/update`,obAccount,{
+                axios.patch(`${addressIpApi}/account/client/crud/update`,obAccount,{
                     withCredentials: true,
                     credentials: 'include',
                   })
@@ -155,7 +155,7 @@ class HandleUpdateAccount {
         const inputEmail = e.target.value.trim()
         const alertEmail=document.querySelector(".setting__box__edit--alert--email ")
        if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputEmail)){
-       axios.get(`http://localhost:3000/account/client/checkbeforeupdate?id=${account._id}&email=${inputEmail}`)
+       axios.get(`${addressIpApi}/account/client/checkbeforeupdate?id=${account._id}&email=${inputEmail}`)
        .then (res =>{
            if(JSON.parse(res.data.email)) {
             alertEmail.classList.remove("text-red-400")

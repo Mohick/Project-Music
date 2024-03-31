@@ -3,12 +3,13 @@ import axios from "axios";
 import React from "react";
 import "./Recent like.css";
 import { Link } from "react-router-dom";
+import { addressIpApi } from "../../URL__CONNECT__API";
 function ViewContentRecentLike() {
   const [api, setApi] = useState([]);
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:3000/discover/format-json/"),
-      axios.get("http://localhost:3000/account/client/automatic/login/", {
+      axios.get(`${addressIpApi}/discover/format-json/`),
+      axios.get(`${addressIpApi}/account/client/automatic/login/`, {
         withCredentials: true,
       }),
     ]).then(([items, user]) => {
@@ -29,38 +30,38 @@ function ViewContentRecentLike() {
   }, []);
   return (
     <div className="container mt-7 m-auto">
-      <div className="flex gap-2  rencentLike__box--content  overflow-x-auto">
+      <div className="flex gap-2 py-3 rencent__Like__box--content  overflow-x-auto">
         {api.length > 0 ? (
           api.map((data, index) => {
             return (
               <React.Fragment key={index}>
-                <Link
-                  to={"/song/" + data.titleMusical + "/" + data._id}
-                  className="max-w-80 w-full min-w-56 rencentLike__box--content--items block rounded-lg p-1 bg-white"
+                <a
+                  key={index}
+                  href={"/song/" + data.titleMusical + "/" + data._id}
+                  className="max-w-80 w-full min-w-56 rencent__Like__box--content--items block rounded-lg p-1 bg-white"
                 >
                   <div className="w-full">
                     <img
-                      loading="lazy"
-                      className="w-full  rencentLike__box--items--img   h-40 rounded-lg"
+                      className="w-full rencent__Like__box--items--img   h-40 rounded-lg"
                       src={data.imageMusical}
                       alt=""
                     />
                   </div>
-                  <div className="flex gap-1 grid-cols-2 ">
-                    <div className="font-bold">Title Music : </div>
-                    <div className="truncate capitalize flex-1">
+                  <div className="flex gap-1 grid-cols-2 pt-3 uppercase font-bold">
+                    <div className="font-bold">nam song : </div>
+                    <div className="truncate uppercase flex-1">
                       {" "}
                       {data.titleMusical}{" "}
                     </div>
                   </div>
-                  <div className="flex gap-1 grid-cols-2 ">
+                  <div className="flex gap-1 grid-cols-2 pb-3">
                     <div className="font-bold">Name Singer : </div>
-                    <div className="truncate capitalize flex-1">
+                    <div className="truncate capitalize flex-1 opacity-60">
                       {" "}
                       {data.nameSinger}{" "}
                     </div>
                   </div>
-                </Link>
+                </a>
               </React.Fragment>
             );
           })

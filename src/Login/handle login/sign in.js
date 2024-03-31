@@ -1,4 +1,5 @@
 import axios from "axios";
+import { addressIpApi } from "../../URL__CONNECT__API";
 
 class SignIn {
   async btnSubmit() {
@@ -11,7 +12,7 @@ class SignIn {
       password: password.value.trim()
     } ;
    if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value) && password.value.trim().length >= 8) {
-     axios.post(`http://localhost:3000/account/client/login`,items,{
+     axios.post(`/account/client/login`,items,{
       withCredentials: true,
       credentials: 'include',
     })

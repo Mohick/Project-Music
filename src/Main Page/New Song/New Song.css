@@ -1,10 +1,16 @@
+.new__song--title {
+  text-shadow: 3px 2px 0px rgb(174, 168, 168);
+}
+.new__song__box--content {
+}
+
 .top__strending--title {
     text-shadow: 3px 2px 0px rgb(174, 168, 168);
 }
-.topTrending__box--content {
+.new__song__box--content {
 }
 
-.topTrending__box--content--items {
+.new__song__box--content--items {
   box-shadow: inset 0 0 17px black;
   filter: grayscale(0.7);
   -webkit-filter: grayscale(0.7);
@@ -20,7 +26,7 @@
   -ms-transition: .5s linear;
   -o-transition: .5s linear;
 }
-.topTrending__box--content--items::after {
+.new__song__box--content--items::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -41,7 +47,7 @@
   -o-transition: .5s linear;
 }
 
-.topTrending__box--content--items:hover::after {
+.new__song__box--content--items:hover::after {
   content: "";
   bottom: 0;
   left: 0;
@@ -66,7 +72,7 @@
   -ms-transition: .5s linear;
   -o-transition: .5s linear;
 }
-.topTrending__box--content--items:first-child:hover::after {
+.new__song__box--content--items:first-child:hover::after {
     content: "";
     bottom: 0;
     left: 0;
@@ -92,7 +98,7 @@
     -o-transition: .5s linear;
   }
   
-.topTrending__box--content--items:hover {
+.new__song__box--content--items:hover {
   filter: grayscale(0);
   -webkit-filter: grayscale(0);
   transform: translateY(-3px);
@@ -107,11 +113,11 @@
   -ms-transition: .5s linear;
   -o-transition: .5s linear;
 }
-.topTrending__box--items--img {
+.new__song__box--items--img {
   box-shadow: 0 0 5px white;
   padding: 2px;
 }
-.topTrending__box--content::-webkit-scrollbar {
+.new__song__box--content::-webkit-scrollbar {
   background-color: gray;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -120,7 +126,7 @@
   -o-border-radius: 10px;
   height: 5px;
 }
-.topTrending__box--content::-webkit-scrollbar-thumb {
+.new__song__box--content::-webkit-scrollbar-thumb {
   background-color: #fff;
   height: 10px;
   border-radius: 10px;
@@ -130,6 +136,6 @@
   -o-border-radius: 10px;
   cursor: grab;
 }
-.topTrending__box--content:active::-webkit-scrollbar-thumb {
+.new__song__box--content:active::-webkit-scrollbar-thumb {
   cursor: grabbing;
 }

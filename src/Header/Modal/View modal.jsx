@@ -1,10 +1,10 @@
 import { memo } from "react";
 import { handleModalMenu } from "./Handle ModalMenu";
 import { Link } from "react-router-dom";
-import {} from "../handle logout";
-import './Views Modal.css'
+import { logout } from "../handle logout";
+import "./Views Modal.css";
+
 function ViewModalMenu({ data }) {
-  
   return (
     <div
       id="modal__menu"
@@ -36,35 +36,46 @@ function ViewModalMenu({ data }) {
                 <div className="text-center mb-3">
                   <div>Username: {data.username}</div>
                 </div>
-                <ul className="flex flex-col gap-2">
-                  <li className="text-center">
-                    <Link
-                      onClick={handleModalMenu}
-                      className=" p-1 bg-white hover:bg-slate-200 block"
-                      to="/"
-                    >
-                      Home
-                    </Link>
-                  </li>
-                  <li className="text-center">
-                    <Link
-                      onClick={handleModalMenu}
-                      className=" p-1 bg-white hover:bg-slate-200 block"
-                      to="/Setting"
-                    >
-                      Setting
-                    </Link>
-                  </li>
-                  <li className="text-center">
-                    <Link
-                      onClick={handleModalMenu}
-                      to="/discover"
-                      className=" p-1 mb-3 bg-white hover:bg-slate-200 block"
-                    >
-                      Discover
-                    </Link>
-                  </li>
-                </ul>
+                <div></div>
+                <div>
+                  <ul className="flex flex-col gap-2">
+                    <li className="text-center">
+                      <Link
+                        onClick={handleModalMenu}
+                        className=" p-1  hover:bg-slate-200 block"
+                        to="/"
+                      >
+                        Home
+                      </Link>
+                    </li>
+                    <li className="text-center">
+                      <Link
+                        onClick={handleModalMenu}
+                        className=" p-1  hover:bg-slate-200 block"
+                        to="/Setting"
+                      >
+                        Setting
+                      </Link>
+                    </li>
+                    <li className="text-center">
+                      <Link
+                        onClick={handleModalMenu}
+                        to="/discover"
+                        className=" p-1 mb-3  hover:bg-slate-200 block"
+                      >
+                        Discover
+                      </Link>
+                    </li>
+                    <li className="text-center">
+                      <Link
+                        onClick={logout}
+                        className=" p-1 mt-7 bg-blue-400 rounded-md hover:bg-slate-200 block"
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </>
             ) : (
               <div className="flex flex-col h-4/5 justify-around gap-2">
@@ -76,7 +87,6 @@ function ViewModalMenu({ data }) {
                   >
                     Discover
                   </Link>
-                  
                 </div>
                 <div className="grid gap-2">
                   <Link

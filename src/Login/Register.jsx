@@ -3,7 +3,7 @@ import handleFocusSignUp from "./handle register/handleFocusSignUp";
 function Register() {
   return (
     <div className="flex container h-lvh justify-center items-center relative m-auto">
-      <div className="w-full mt-3 border  p-1 shadow-inner shadow-white sm:max-w-96">
+      <div className="w-full mt-3 border rounded-md drop__form--login--signup p-1 shadow-inner shadow-white sm:max-w-96">
         <div className="text-green-400 font-bold text-center text-2xl">
           Login
         </div>

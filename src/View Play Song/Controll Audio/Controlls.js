@@ -1,29 +1,32 @@
 import axios from "axios";
-
+import { addressIpApi } from "../../URL__CONNECT__API";
 class Controlls {
   async play() {
     let srcAudio = document.querySelector("audio");
     let btnPlay = document.querySelector("#product__button--play");
     let btnPause = document.querySelector("#product__button--pause");
-    console.log(btnPause);
+    const imgProducs = document.querySelector(".product__container--image");
     if (btnPlay.classList.contains("block")) {
       srcAudio.play();
       btnPlay.classList.remove("block");
       btnPlay.classList.add("hidden");
       btnPause.classList.remove("hidden");
       btnPause.classList.add("block");
+      imgProducs.classList.remove("paused__animation");
     }
   }
   async pause() {
     let srcAudio = document.querySelector("audio");
     let btnPlay = document.querySelector("#product__button--play");
     let btnPause = document.querySelector("#product__button--pause");
+    const imgProducs = document.querySelector(".product__container--image");
     if (btnPause.classList.contains("block")) {
       srcAudio.pause();
       btnPlay.classList.remove("hidden");
       btnPause.classList.remove("block");
       btnPlay.classList.add("block");
       btnPause.classList.add("hidden");
+      imgProducs.classList.add("paused__animation");
     }
   }
   async volume() {
@@ -94,17 +97,16 @@ class Controlls {
         item.idUser = id;
         Promise.all([
           axios.patch(
-            "http://localhost:3000/discover/client/crud/update/item",
+            `${addressIpApi}/discover/client/crud/update/item`,
             item
           ),
-          axios.patch("http://localhost:3000/account/client/crud/update/like", {
+          axios.patch(`${addressIpApi}/account/client/crud/update/like`, {
             methodLike: "addlike",
             id,
             idItem: item._id,
           }),
-        ])
-        .then(([response,adas]) => {
-          console.log(response,adas );
+        ]).then(([response, adas]) => {
+          console.log(response, adas);
         });
         break;
     }
@@ -122,16 +124,15 @@ class Controlls {
         item.idUser = id;
         Promise.all([
           axios.patch(
-            "http://localhost:3000/discover/client/crud/update/item",
+            `${addressIpApi}/discover/client/crud/update/item`,
             item
           ),
-          axios.patch("http://localhost:3000/account/client/crud/update/like", {
+          axios.patch(`${addressIpApi}/account/client/crud/update/like`, {
             methodLike: "unlike",
             id,
             idItem: item._id,
           }),
-        ])
-        .then((response) => {
+        ]).then((response) => {
           console.log(response);
         });
         break;
@@ -140,9 +141,7 @@ class Controlls {
   async valueSong() {
     let audio = document.querySelector("audio");
     const seekScroll = document.querySelector("#product__value--song");
-    const urlNextSong = document.querySelector(".otherProduct__items--0");
     const btnLoop = document.querySelector("#product__button--loop--musical");
-
     const tagRenderCurrentTime = document.querySelector(
       ".product__current--time--audio"
     );
@@ -150,6 +149,7 @@ class Controlls {
       ".product__duration--audio"
     );
     audio.addEventListener("ended", () => {
+      const urlNextSong = document.querySelector(".otherProduct__items--0");
       if (!btnLoop.getAttribute("loop")) {
         window.location = urlNextSong;
       }
@@ -218,7 +218,6 @@ class Controlls {
     let audio = document.querySelector("audio");
     const seekScroll = document.querySelector("#product__value--song");
     const newCurrentTime = seekScroll.value * audio.duration;
-    console.log(newCurrentTime);
     audio.currentTime = newCurrentTime;
   }
 }

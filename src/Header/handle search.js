@@ -12,6 +12,7 @@ async function handleSearch(discover,tag) {
   </a>
     `
    },'')
+   console.log(boxDropdown);
  if(items.length > 0) {
     boxDropdown.classList.add("block")
     boxDropdown.classList.remove("hidden")
@@ -39,12 +40,16 @@ async function btnSearch(tag) {
     const inputSearch = document.getElementById("header__search--item")
     if(inputSearch.value.length > 0) {
         window.location.pathname= `search/${inputSearch.value}`
+    }else {
+        inputSearch.focus()
     }
 }
 async function btnSearchMobi(tag) {
     const inputSearch = document.getElementById("header__search--item--mobi")
     if(inputSearch.value.length > 0) {
         window.location.pathname= `search/${inputSearch.value}`
+    }{
+        inputSearch.focus()
     }
 }
 export {handleSearch,offDropDownSearch,btnSearch,btnSearchMobi}

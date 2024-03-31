@@ -24,13 +24,13 @@ function SliderMainPage() {
 
   return (
     <>
-      <div className="flex sm:mt-4 sm:order-2 sm:justify-end  justify-center">
-        <div id="mainPage__slider" className=" order-2 ">
+      <div className="flex sm:mt-4 flex-1 sm:order-2 sm:justify-end  justify-center">
+        <div id="mainPage__slider" className="flex-1 order-2 ">
           <Slider className="flex-1 " {...settings}>
             {arrySlite.map((img,index) => {
               return (
                 <div key={index} className="w-full cursor-grab	 active:cursor-grabbing h-full">
-                  <img className="w-full  h-96" src={img} alt="" />
+                  <img className="w-full main__page__slider--img h-96" src={img} alt="" />
                 </div>
               );
             })}

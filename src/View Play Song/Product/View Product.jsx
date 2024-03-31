@@ -5,19 +5,20 @@ import ViewLike from "./View Like product";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
+import { addressIpApi } from "../../URL__CONNECT__API";
 function Product() {
   const navigate = useNavigate();
   const { id, slug, title } = useParams();
   const [data, setData] = useState({ item: {}, user: 0 });
-
+  console.log(!!performance.navigation.type);
   useEffect(() => {
     let check = true;
     if (check) {
       Controlls.valueSong();
       window.scrollTo(0, { behavior: "smooth" });
       Promise.all([
-        axios.get("http://localhost:3000/discover/format-json/"),
-        axios.get("http://localhost:3000/account/client/automatic/login/", {
+        axios.get(`${addressIpApi}/discover/format-json/`),
+        axios.get(`${addressIpApi}/account/client/automatic/login/`, {
           withCredentials: true,
         }),
       ]).then(([itemsData, userData]) => {
@@ -28,7 +29,7 @@ function Product() {
           const checkID = user.liked.filter((idSong) => {
             return idSong == id;
           });
-          
+
           setData({
             item: item[0],
             _id: user._id,
@@ -55,22 +56,33 @@ function Product() {
   }, []);
   return (
     <div>
-      <div className="border text-white  p-2  capitalize border-white">
-        <div className="font-bold text-center">{data.item.titleMusical}</div>
+      <div className="border text-white m-auto w-full  p-2  capitalize border-white">
+        <div className="product__title font-bold text-center">
+          {data.item.titleMusical}
+        </div>
         <div className="text-center opacity-65 ">{data.item.nameSinger}</div>
         <div className="mt-2  flex justify-center">
-          <div className="product__container--image md:w-80 w-64">
+          <div className="product__container--image  md:w-80 w-64">
             <img
               src={data.item.imageMusical}
-              className="product__container--image w-full"
+              className="product--image   w-full"
               alt=" Image Disk"
             />
+            <div className="product__container__sound">
+              <div className="product__sound--bar--1 "></div>
+              <div className="product__sound--bar--2"></div>
+              <div className="product__sound--bar--3"></div>
+              <div className="product__sound--bar--4"></div>
+              <div className="product__sound--bar--5"></div>
+              <div className="product__sound--bar--6"></div>
+              <div className="product__sound--bar--7"></div>
+            </div>
           </div>
         </div>
         <div>
           <div className="flex justify-between">
-            <div className="product__current--time--audio">00:00</div>
-            <div className="product__duration--audio">00:00</div>
+            <div className="product__current--time--audio font-bold">00:00</div>
+            <div className="product__duration--audio font-bold">00:00</div>
           </div>
           <input
             step={0.0001}
@@ -157,7 +169,8 @@ function Product() {
             </div>
           </div>
           <div>
-            {!!performance.navigation.type ? (
+            {/* !!performance.navigation.type */}
+            {false ? (
               <>
                 <div>
                   <svg
@@ -247,10 +260,10 @@ function Product() {
           </a>
 
           <ViewLike
-           item={data.item}
-           userHasBeenLike={data.liked}
-           userID={data._id}
-           like={data.item.like}
+            item={data.item}
+            userHasBeenLike={data.liked}
+            userID={data._id}
+            like={data.item.like}
           />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import "./Other Product.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { addressIpApi } from "../../URL__CONNECT__API";
 import axios from "axios";
 function OthersProduct() {
   const navigate = useNavigate();
@@ -12,40 +12,41 @@ function OthersProduct() {
     let check = true;
     if (check) {
       axios
-        .get("/discover/format-json/")
+        .get(`${addressIpApi}/discover/format-json/`)
         .then((response) => {
           const data = response.data;
           const items = data.filter((data) => data._id !== id);
-          setitem(items.slice(0, 6));
+          const random = Math.floor(Math.random() * (items.length - 6));
+          setitem(items.slice(random, random + 6));
         });
     }
     return () => (check = false);
   }, []);
 
   return (
-    <div className="mt-3">
+    <div className="mt-3 lg:mt-0">
       <div className="mb-3 text-white text-xl font-bold">
         Others Product <span className="text-red-500">&#35;</span>
       </div>
-      <div className="grid othersProduct__box--content xl:grid-cols-5 md:grid-cols-3 lg:grid-cols-4	 grid-cols-3 gap-2">
+      <div className="grid othersProduct__box--content lg:flex lg:flex-col xl:grid-cols-6 md:grid-cols-3 lg:grid-cols-4	 grid-cols-3 gap-4">
         {item.map((item, index) => {
           return (
             <a
-              hrefLang="a"
+              hrefLang=""
               key={index}
-              href={"/song/"+item.titleMusical+"/"+item._id}
+              href={"/song/" + item.titleMusical + "/" + item._id}
               className={`otherProduct__items--${index} othersProduct__box--content--items block rounded-lg p-1 bg-white`}
             >
               <div className="w-full">
                 <img
-                  className="w-full topTrending__box--items--img   h-40 rounded-lg"
+                  className="w-full other__product--items--img p-1 overflow-hidden   h-40 rounded-lg"
                   src={item.imageMusical}
                   alt=""
                 />
               </div>
-              <div className="flex gap-1 grid-cols-2 ">
-                <div className="font-bold">Title Music : </div>
-                <div className="truncate capitalize flex-1">
+              <div className="flex gap-1 grid-cols-2 uppercase ">
+                <div className="font-bold">Name Song : </div>
+                <div className="truncate font-bold capitalize flex-1">
                   {item.titleMusical}
                 </div>
               </div>

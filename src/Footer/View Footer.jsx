@@ -22,10 +22,10 @@ function Footer() {
             <div className=" border border-white">Profile Project</div>
             <div>
               <ul className="text-start ">
-                <li>Member : 1 .</li>
-                <li>FullName Member : Dư Bảo Nhàn .</li>
-                <li>Year Of : 2004 .</li>
-                <li>Email : haokietks7@gmail.com .</li>
+                <li className="pt-2 mt-2">Member : 1 .</li>
+                <li className="pt-2 mt-2">FullName Member : Dư Bảo Nhàn .</li>
+                <li className="pt-2 mt-2">Year Of : 2004 .</li>
+                <li className="pt-2 mt-2">Email : haokietks7@gmail.com .</li>
               </ul>
             </div>
           </div>
@@ -33,14 +33,14 @@ function Footer() {
             <div className=" border border-white">Feature Project</div>
             <div>
               <ul className="text-start capitalize">
-                <li>
+                <li className="pt-2 mt-2">
                   Render : call api get Data From Server And Render for Client !
                 </li>
-                <li>
+                <li className="pt-2 mt-2">
                   Login : Call Api Session-cookies could authention from Server
                   !
                 </li>
-                <li>Search : Find a or many product musical !</li>
+                <li className="pt-2 mt-2">Search : Find a or many product musical !</li>
               </ul>
             </div>
           </div>
@@ -79,7 +79,7 @@ function Footer() {
                 facebook
                 </div>
               </a>
-              <a href="https://github.com/Mohick" className="pt-2 flex gap-2 mt-2">
+              <a href="https://github.com/Mohick" className="pt-2 mt-2 flex gap-2 ">
                 <svg xmlns="http://www.w3.org/2000/svg"
                 className="fill-white w-5"
                 viewBox="0 0 496 512">

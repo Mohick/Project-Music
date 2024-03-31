@@ -1,4 +1,5 @@
 import axios from "axios";
+import { addressIpApi } from "../../URL__CONNECT__API";
 
 class HandleSignUp {
   async handleAlertUsernameWhenOnblur() {
@@ -20,7 +21,7 @@ class HandleSignUp {
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
       axios
         .get(
-          `http://localhost:3000/account/client/${email.value.trim()}` 
+          `${addressIpApi}/account/client/${email.value.trim()}` 
         )
         .then((response) => {
           if (!!response.data.result) {
@@ -181,7 +182,7 @@ class HandleSignUp {
       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
         axios
           .get(
-            `http://localhost:3000/account/client/${email.value.trim()}`
+            `${addressIpApi}/account/client/${email.value.trim()}`
           )
           .then((response) => {
             if (!!response.data.result) {
@@ -211,7 +212,7 @@ class HandleSignUp {
       }
     }
     function createAccount(items) {
-      axios.post("http://localhost:3000/account/client/crud/create/",items,{
+      axios.post("${addressIpApi}/account/client/crud/create/",items,{
           withCredentials: true,
           credentials: 'include',
         }).then((response) => {

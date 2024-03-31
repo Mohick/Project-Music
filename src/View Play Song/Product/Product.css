@@ -1,8 +1,328 @@
 .product__container--image {
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  overflow: hidden;
+  border: 2px double #ccc;
+  box-shadow: 0 0 10px #fff;
+  /* animation: spinImg 1s linear infinite;
+  -webkit-animation: spinImg 1s linear infinite; */
+  overflow: hidden;
+}
+
+.product__title {
+  animation: boxTitle 0.5s linear infinite;
+  -webkit-animation: boxTitle 0.5s linear infinite;
+}
+
+.paused__animation {
+  animation-play-state: paused;
+}
+
+@keyframes spinImg {
+  0% {
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    -o-transform: rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateX(360deg);
+    -webkit-transform: rotateX(360deg);
+    -moz-transform: rotateX(360deg);
+    -ms-transform: rotateX(360deg);
+    -o-transform: rotateX(360deg);
+  }
+}
+
+@keyframes boxTitle {
+  from {
+    text-shadow: 1px 1px 0px #fff;
+  }
+  to {
+    text-shadow: 1px 1px 0px blue;
+  }
+}
+.product__duration--audio,
+.product__current--time--audio {
+  text-shadow: -2px 2px 0px rgb(114, 109, 108);
+}
+
+.product__container__sound {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-100%);
+  top: 101%;
+  display: flex;
+  gap: 2;
+  /*border-bottom: 2px solid black;
+  */
+  -webkit-transform: translate(-50%,-100%);
+  -moz-transform: translate(-50%,-100%);
+  -ms-transform: translate(-50%,-100%);
+  -o-transform: translate(-50%,-100%);
+}
+
+.product__sound--bar--1,
+.product__sound--bar--2,
+.product__sound--bar--3,
+.product__sound--bar--4,
+.product__sound--bar--5,
+.product__sound--bar--6,
+.product__sound--bar--7 {
+  height: 20px;
+  width: 5px;
+  position: relative;
+  background: white;
+  margin: 0 5px 0;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.product__sound--bar--1::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  animation: jumpDance1 .7s linear infinite;
+  -webkit-animation: jumpDance1 .9s linear infinite;
+  background: white;
+  width: 6px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border: 1px solid black;
+  box-shadow: inset 0px 0px 2px black;
+}
+.product__sound--bar--2::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  animation: jumpDance2 .9s linear infinite;
+  -webkit-animation: jumpDance2 .9s linear infinite;
+  background: white;
+  width: 6px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border: 1px solid black;
+  box-shadow: inset 0px 0px 2px black;
+}
+.product__sound--bar--3::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  animation: jumpDance3 .9s linear infinite;
+  -webkit-animation: jumpDance3 .9s linear infinite;
+  background: white;
+  width: 6px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border: 1px solid black;
+  box-shadow: inset 0px 0px 2px black;
+}
+.product__sound--bar--4::after {
+  border: 1px solid black;
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  animation: jumpDance4 .9s linear infinite;
+  -webkit-animation: jumpDance4 .9s linear infinite;
+  background: white;
+  width: 6px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  box-shadow: inset 0px 0px 2px black;
+}
+.product__sound--bar--5::after {
+  border: 1px solid black;
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  animation: jumpDance5 .9s linear infinite;
+  -webkit-animation: jumpDance5 .9s linear infinite;
+  background: white;
+  width: 6px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  box-shadow: inset 0px 0px 2px black;
+}
+.product__sound--bar--6::after {
+  border: 1px solid black;
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  animation: jumpDance6 .9s linear infinite;
+  -webkit-animation: jumpDance6 .9s linear infinite;
+  background: white;
+  width: 6px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  box-shadow: inset 0px 0px 2px black;
+}
+.product__sound--bar--7::after {
+  border: 1px solid black;
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  animation: jumpDance7 .92s linear infinite;
+  -webkit-animation: jumpDance7 .92s linear infinite;
+  background: white;
+  width: 6px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  box-shadow: inset 0px 0px 2px black;
+}
+@keyframes jumpDance1 {
+  from {
+    height: 20px;
+  }
+  25% {
+    height: 60px;
+  }
+  50% {
+    height: 20px;
+  }
+  70% {
+    height: 50px;
+  }
+  to {
+    height: 20px;
+  }
+}
+@keyframes jumpDance2 {
+  from {
+    height: 20px;
+  }
+  25% {
+    height: 50px;
+  }
+  50% {
+    height: 20px;
+  }
+  70% {
+    height: 60px;
+  }
+  to {
+    height: 20px;
+  }
+}
+@keyframes jumpDance3 {
+  from {
+    height: 20px;
+  }
+  25% {
+    height: 40px;
+  }
+  50% {
+    height: 20px;
+  }
+  70% {
+    height: 50px;
+  }
+  to {
+    height: 20px;
+  }
+}
+
+@keyframes jumpDance4 {
+  from {
+    height: 20px;
+  }
+  25% {
+    height: 40px;
+  }
+  50% {
+    height: 20px;
+  }
+  70% {
+    height: 50px;
+  }
+  to {
+    height: 20px;
+  }
+}
+@keyframes jumpDance5 {
+  from {
+    height: 20px;
+  }
+  25% {
+    height: 70px;
+  }
+  50% {
+    height: 20px;
+  }
+  70% {
+    height: 50px;
+  }
+  to {
+    height: 20px;
+  }
+}
+@keyframes jumpDance6 {
+  from {
+    height: 20px;
+  }
+  25% {
+    height: 40px;
+  }
+  50% {
+    height: 20px;
+  }
+  70% {
+    height: 60px;
+  }
+  to {
+    height: 20px;
+  }
+}
+@keyframes jumpDance7 {
+  from {
+    height: 20px;
+  }
+  25% {
+    height: 60px;
+  }
+  50% {
+    height: 20px;
+  }
+  70% {
+    height: 50px;
+  }
+  to {
+    height: 20px;
+  }
 }

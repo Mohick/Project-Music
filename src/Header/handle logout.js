@@ -1,8 +1,8 @@
 import axios from "axios";
-
+import { addressIpApi } from "../URL__CONNECT__API";
 function logout() {
-    axios.get('http://localhost:3000/logout/user',{withCredentials:true})
-    window.location.href = "/";
+    axios.get(`${addressIpApi}/logout/user`,{withCredentials:true})
+   
 }
 
 export { logout};

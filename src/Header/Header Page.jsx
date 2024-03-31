@@ -11,16 +11,17 @@ import {
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { addressIpApi } from "../URL__CONNECT__API";
 function HeaderView() {
   const [user, setUser] = useState({});
   useEffect(() => {
     let checked = true;
     if (checked) {
       Promise.all([
-        axios.get("http://localhost:3000/account/client/automatic/login/", {
+        axios.get(`${addressIpApi}/account/client/automatic/login/`, {
           withCredentials: true,
         }),
-        axios.get("http://localhost:3000/discover/format-json/"),
+        axios.get(`${addressIpApi}/discover/format-json/`),
       ]).then(([account, discover]) => {
         account = account.data;
         discover = discover.data;
@@ -42,7 +43,7 @@ function HeaderView() {
   return (
     <header
       id="header"
-      className="z-50 top-0   sm:py-2  fixed bg-black left-0  right-0 "
+      className="z-50 top-0 pb-1  sm:py-2  fixed bg-black left-0  right-0 "
     >
       <div className="container  gap-8 p-1 sm:p-0 m-auto flex ">
         {/* logo */}
@@ -56,25 +57,26 @@ function HeaderView() {
           </Link>
         </div>
         <div className="lg:flex hidden order-1 flex-col justify-end items-center hover:drop-shadow-md font-bold  ">
-          <Link to="/discover" className="block capitalize">
+          <Link to="/discover" className="header__url--discover  block text-white capitalize">
             Discover
           </Link>
         </div>
-        <div className=" flex flex-1 order-2 justify-center">
-          <div className="w-full sm:flex relative hidden items-center md:flex">
+        <div className="header__container--search--on--640px relative  flex flex-1 order-2 justify-center">
+          <div className="header__box--search w-full  sm:flex relative rounded-md  hidden items-center md:flex">
             <input
               id="header__search--item"
               placeholder="Name Song . . ."
-              className="w-full  p-1 rounded-s-md outline-none bg-white px-2"
+              className="w-full  p-1  outline-none rounded-s-md caret-pink-500 bg-white px-2"
               type="search"
               onChange={(e) => handleSearch(user.discover, e.target)}
               onBlur={(e) => offDropDownSearch(e)}
             />
             <input
+              id="header__bnt__submit--search--item"
               type="submit"
               onClick={btnSearch}
               value={"Search"}
-              className="rounded-e-md p-1 hover:bg-slate-100 cursor-pointer bg-white border-l-2    px-2"
+              className=" p-1 hover:bg-slate-100 rounded-e-md cursor-pointer bg-white   border-l-gray-400 px-2"
             />
 
             <div
@@ -84,23 +86,25 @@ function HeaderView() {
           </div>
         </div>
         {/* check user on  <=	1024px */}
-        <div className="header__box--login text-white  relative justify-end order-3 flex  gap-2 items-center">
+        <div className="header__container--login text-white   relative justify-end order-3 flex  gap-2 items-center">
           {!user.checkUSer ? (
             <>
-              <div className="hidden  lg:block truncate max-w-24">
-                {user.username}
-              </div>
-              <div className="  lg:block hidden">
-                <svg
-                  className="h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 512"
-                >
-                  <path d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z" />
-                </svg>
-              </div>
-              <div className="absolute  hidden header__box--login--dropdown top-full">
-                <DropDownHeader />
+              <div className="header__box--login lg:hover:bg-slate-50 flex relative gap-2 px-3 rounded lg:hover:fill-black lg:hover:text-black">
+                <div className="hidden lg:hover:bg-slate-50 px-3 rounded  lg:block truncate max-w-24">
+                  {user.username}
+                </div>
+                <div className="  lg:block hidden">
+                  <svg
+                    className="h-4 fill-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z" />
+                  </svg>
+                </div>
+                <div className="absolute  hidden header__box--login--dropdown top-full">
+                  <DropDownHeader />
+                </div>
               </div>
             </>
           ) : (
@@ -145,7 +149,7 @@ function HeaderView() {
           }}
         />
       </div>
-      <div className="header__box__search--menu w-full relative sm:hidden  p-1  flex justify-end">
+      <div className="header__box__search--menu--slow--600px w-full relative sm:hidden  p-1  flex justify-end">
         <input
           placeholder="Name Song . . ."
           id="header__search--item--mobi"
@@ -153,6 +157,7 @@ function HeaderView() {
           type="search"
         />
         <input
+          id="header__btn__search--item--mobi"
           type="submit"
           onClick={btnSearchMobi}
           value={"Search"}
