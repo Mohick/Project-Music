@@ -61,7 +61,7 @@ function ViewContentRecentLike() {
                       {data.nameSinger}{" "}
                     </div>
                   </div>
-                </a>
+                </Link>
               </React.Fragment>
             );
           })

@@ -34,7 +34,7 @@ function SearchResult() {
             {item.map((item, index) => {
               return (
                 <React.Fragment key={index}>
-                  <a
+                  <Link
                     key={index}
                     href={"/song/" + item.titleMusical + "/" + item._id}
                     className="max-w-80  search__item min-w-36 m-auto w-full block rounded-lg p-1 bg-white"
@@ -61,7 +61,7 @@ function SearchResult() {
                         {item.nameSinger}{" "}
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </React.Fragment>
               );
             })}

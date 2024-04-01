@@ -242,7 +242,7 @@ function Product() {
               </>
             )}
           </div>
-          <a
+          <Link
             className="block"
             onClick={Controlls.nextStep}
             id="product__button--nextStep"
@@ -257,7 +257,7 @@ function Product() {
                 241V96c0-17.7 14.3-32 32-32s32 14.3 32 32V416c0 17.7-14.3 32-32 32s-32-14.3-32-32V271l-11.5 9.6-192 160z"
               />
             </svg>
-          </a>
+          </Link>
 
           <ViewLike
             item={data.item}

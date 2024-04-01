@@ -47,7 +47,7 @@ function ViewsContentNewSong() {
                       {data.nameSinger}{" "}
                     </div>
                   </div>
-                </a>
+                </Link>
               </React.Fragment>
             );
           })

@@ -22,9 +22,9 @@ function ViewUSA() {
          return (
           <div key={index} className="flex p-1 border discover--items mb-3 ">
             <div className="flex-1 overflow-hidden">
-              <a
+              <Link
                 className="block truncate"
-                href={`/song/${item.titleMusical}/${item._id}`}
+                to={`/song/${item.titleMusical}/${item._id}`}
               >
                 <div>
                   <div className="font-bold uppercase truncate">
@@ -40,7 +40,7 @@ function ViewUSA() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="flex">
               <div className="grid  grid-cols-2 cursor-pointer gap-5 items-center">

@@ -50,7 +50,7 @@ function ViewContentTopTrending() {
                     {data.nameSinger}{" "}
                   </div>
                 </div>
-              </a>
+              </Link>
             </React.Fragment>
           );
         })}
