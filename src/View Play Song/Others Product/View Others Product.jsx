@@ -1,7 +1,7 @@
 import "./Other Product.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { addressIpApi } from "../../URL__CONNECT__API";
+
 import axios from "axios";
 function OthersProduct() {
   const navigate = useNavigate();
@@ -31,10 +31,10 @@ function OthersProduct() {
       <div className="grid othersProduct__box--content lg:flex lg:flex-col xl:grid-cols-6 md:grid-cols-3 lg:grid-cols-4	 grid-cols-3 gap-4">
         {item.map((item, index) => {
           return (
-            <a
+            <Link
               hrefLang=""
               key={index}
-              href={"/song/" + item.titleMusical + "/" + item._id}
+              to={"/song/" + item.titleMusical + "/" + item._id}
               className={`otherProduct__items--${index} othersProduct__box--content--items block rounded-lg p-1 bg-white`}
             >
               <div className="w-full">
@@ -56,7 +56,7 @@ function OthersProduct() {
                   {item.nameSinger}
                 </div>
               </div>
-            </a>
+            </Link>
           );
         })}
       </div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addressIpApi } from "../../URL__CONNECT__API";
+;
 class Controlls {
   async play() {
     let srcAudio = document.querySelector("audio");

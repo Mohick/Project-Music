@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ControllAudio from "./Controll Audio/Controll";
 import { Link } from "react-router-dom";
 import "./CSS Conntent.css";
-import { addressIpApi } from "../../URL__CONNECT__API";
+
 
 function ViewUSA() {
   const [api, setApi] = useState([]);

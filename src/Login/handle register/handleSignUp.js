@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addressIpApi } from "../../URL__CONNECT__API";
+
 
 class HandleSignUp {
   async handleAlertUsernameWhenOnblur() {

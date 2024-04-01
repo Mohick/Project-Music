@@ -6,7 +6,7 @@ const Discover = lazy(() => import("../Discocer/View Discover"));
 const Login = lazy(() => import("../Login/Login"));
 const Register = lazy(() => import("../Login/Register"));
 const Setting = lazy(() => import("../Setting/View Setting"));
-const Error404 = lazy(() => import("../Error 404/Page Error 404"))
+const Error404 = lazy(() => import("../Error 404/Page Error 404"));
 import Loading from "../Loading/View Loading";
 const ViewDiscoverAll = lazy(() =>
   import("../Discocer/Views Mode Render/Views All")
@@ -17,14 +17,14 @@ const ViewDiscoverVN = lazy(() =>
 const ViewDiscoverUSA = lazy(() =>
   import("../Discocer/Views Mode Render/Views USA")
 );
-const ResultSearch = lazy(() => import("../Search/View Search")); 
+const ResultSearch = lazy(() => import("../Search/View Search"));
 function ViewsRouter() {
   return (
     <Routes>
       <Route
         path="/"
         element={
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <MainPageComponent />
           </Suspense>
         }
@@ -32,15 +32,15 @@ function ViewsRouter() {
       <Route
         path="/setting"
         element={
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <Setting />
           </Suspense>
         }
       />
-       <Route
-        path="song/:title/:id"
+      <Route
+        path="/song/:title/:id"
         element={
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <ProductMusic />
           </Suspense>
         }
@@ -48,63 +48,63 @@ function ViewsRouter() {
       <Route
         path="/discover"
         element={
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <Discover render={"all"} />
             <ViewDiscoverAll />
           </Suspense>
         }
-      /> <Route
-      path="/search/:title"
-      element={
-        <Suspense fallback={<Loading/>}>
-          <ResultSearch />
-        </Suspense>
-      }
-    />
+      />
+      <Route
+        path="/search/:title"
+        element={
+          <Suspense fallback={<Loading />}>
+            <ResultSearch />
+          </Suspense>
+        }
+      />
       <Route
         path="/discover/VN"
         element={
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <Discover render={"VN"} />
             <ViewDiscoverVN />
           </Suspense>
         }
-      />{" "}
+      />
       <Route
         path="/discover/USA"
         element={
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <Discover render={"USA"} />
             <ViewDiscoverUSA />
           </Suspense>
         }
       />
-        <Route
+      <Route
         path="/Login/"
         element={
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <Login />
           </Suspense>
         }
       />
-         <Route
+      <Route
         path="/register/"
         element={
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <Register />
           </Suspense>
         }
       />
-        <Route
+      <Route
         path="*"
         element={
-          <Suspense fallback={<Loading/>}>
+          <Suspense fallback={<Loading />}>
             <Error404 />
           </Suspense>
         }
       />
     </Routes>
-    
   );
 }
 

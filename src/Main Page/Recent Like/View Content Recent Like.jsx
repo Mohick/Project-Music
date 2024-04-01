@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 import "./Recent like.css";
 import { Link } from "react-router-dom";
-import { addressIpApi } from "../../URL__CONNECT__API";
+
 function ViewContentRecentLike() {
   const [api, setApi] = useState([]);
   useEffect(() => {
@@ -35,9 +35,9 @@ function ViewContentRecentLike() {
           api.map((data, index) => {
             return (
               <React.Fragment key={index}>
-                <a
+                <Link
                   key={index}
-                  href={"/song/" + data.titleMusical + "/" + data._id}
+                  to={"/song/" + data.titleMusical + "/" + data._id}
                   className="max-w-80 w-full min-w-56 rencent__Like__box--content--items block rounded-lg p-1 bg-white"
                 >
                   <div className="w-full">

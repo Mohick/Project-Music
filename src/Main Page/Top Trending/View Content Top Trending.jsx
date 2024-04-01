@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
-import { addressIpApi } from "../../URL__CONNECT__API";
+
 function ViewContentTopTrending() {
   const [api, setApi] = useState([]);
   useEffect(() => {
@@ -24,9 +24,9 @@ function ViewContentTopTrending() {
         {api.map((data, index) => {
           return (
             <React.Fragment key={index}>
-              <a
+              <Link
                 key={index}
-                href={"/song/" + data.titleMusical + "/" + data._id}
+                to={"/song/" + data.titleMusical + "/" + data._id}
                 className="max-w-80 w-full min-w-56 topTrending__box--content--items block rounded-lg p-1 bg-white"
               >
                 <div className="w-full">

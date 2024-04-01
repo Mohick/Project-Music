@@ -8,7 +8,7 @@ function Footer() {
       originContent()
   }
   return () => {
-    window.removeEventListener('resize',handleRenderFooter)
+   
     return check = false
   }
  },[])

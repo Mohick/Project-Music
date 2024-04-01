@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import './New Song.css'
-import { addressIpApi } from "../../URL__CONNECT__API";
+
 function ViewsContentNewSong() {
   const [api, setApi] = useState([]);
   useEffect(() => {
@@ -21,9 +21,9 @@ function ViewsContentNewSong() {
           api.map((data, index) => {
             return (
               <React.Fragment key={index}>
-                <a
+                <Link
                   key={index}
-                  href={"/song/" + data.titleMusical + "/" + data._id}
+                  to={"/song/" + data.titleMusical + "/" + data._id}
                   className="max-w-80 w-full min-w-56 new__song__box--content--items block rounded-lg p-1 bg-white"
                 >
                   <div className="w-full">

@@ -3,7 +3,7 @@ import "./Setting.css";
 import axios from "axios";
 import HandleUpdateAccount from "./handle update account/handle update account";
 import handleUpdateAccount from "./handle update account/handle update account";
-import { addressIpApi } from "../URL__CONNECT__API";
+
 function Setting() {
   const [account, setAccount] = useState({});
   useEffect(() => {

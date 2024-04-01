@@ -4,12 +4,6 @@
 .new__song__box--content {
 }
 
-.top__strending--title {
-    text-shadow: 3px 2px 0px rgb(174, 168, 168);
-}
-.new__song__box--content {
-}
-
 .new__song__box--content--items {
   box-shadow: inset 0 0 17px black;
   filter: grayscale(0.7);

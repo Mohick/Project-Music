@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ControllAudio from "./Controll Audio/Controll";
 import { Link } from "react-router-dom";
-import { addressIpApi } from "../../URL__CONNECT__API";
+
 function ViewVN() {
   const [api, setApi] = useState([]);
 
@@ -23,9 +23,9 @@ function ViewVN() {
           return (
             <div key={index} className="flex discover--items  p-1 border mb-3">
               <div className="flex-1 overflow-hidden">
-                <a
+                <Link
                   className="block truncate"
-                  href={`/song/${item.titleMusical}/${item._id}`}
+                  to={`/song/${item.titleMusical}/${item._id}`}
                 >
                   <div>
                     <div className="font-bold capitalize truncate">
@@ -41,7 +41,7 @@ function ViewVN() {
                       </span>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="flex">
                 <div className="grid  grid-cols-2 cursor-pointer gap-5 items-center">

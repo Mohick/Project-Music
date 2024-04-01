@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import React from "react";
 import "./View Search.css";
-import { addressIpApi } from "../URL__CONNECT__API";
+
 function SearchResult() {
   const navigate = useNavigate();
   const { title } = useParams();

@@ -5,7 +5,7 @@ import ViewLike from "./View Like product";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
-import { addressIpApi } from "../../URL__CONNECT__API";
+
 function Product() {
   const navigate = useNavigate();
   const { id, slug, title } = useParams();

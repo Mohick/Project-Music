@@ -11,7 +11,7 @@ import {
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { addressIpApi } from "../URL__CONNECT__API";
+
 function HeaderView() {
   const [user, setUser] = useState({});
   useEffect(() => {
